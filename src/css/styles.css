@@ -52,7 +52,7 @@
       color: white;
       border: 1px solid white;
       background-color: transparent;
-      padding: 12px 32px;
+      padding: 10px 44px;
       letter-spacing: 2px;
       text-transform: uppercase;
       
@@ -79,4 +79,29 @@
   .welcome-link:hover {
       color: #555;
       cursor: pointer;
+  }
+
+  .featured-section {
+      margin-bottom: 100px;
+  }
+
+  .feature-block {
+      
+      border: 8px solid #fff;
+  }
+
+  .featured-row {
+      height: 650px;
+  }
+
+  .feature-block-nested {
+      height: 50%;
+      border: 8px solid #fff;
+  }
+
+  .feature-block-img {
+      background-image: url('../resources/wood-chair.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 50% 77%;
   }
