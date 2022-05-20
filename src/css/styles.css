@@ -16,7 +16,7 @@
 
   .btn-user, .btn-cart {
       border: none;
-      background-color: #fff;
+      background-color: transparent;
   }
 
   .icon-user, .icon-cart {
@@ -95,13 +95,37 @@
   }
 
   .feature-block-nested {
-      height: 50%;
+      height: 325px;
       border: 8px solid #fff;
   }
 
-  .feature-block-img {
-      background-image: url('../resources/wood-chair.jpg');
+  .feature-img-1 {
+    background-image: url('../resources/server.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 100%;
+  }
+  
+
+  .feature-img-2 {
+    background-image: url('../resources/rattan-chair.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 90%;
+  }
+
+  .feature-img-3 {
+    background-image: url('../resources/wood-vases.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-size: 800px; */
+    background-position: 80% 90%;
+  }
+
+  .feature-img-4 {
+      background-image: url('../resources/desk.jpg');
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: 50% 77%;
+      background-position: 50% 100%;
+      height: 650px;
   }
