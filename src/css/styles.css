@@ -1,131 +1,165 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    color: #333;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .logo {
-      width: 240px;
-  }
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: #333;
+}
 
-  .btn-user, .btn-cart {
-      border: none;
-      background-color: transparent;
-  }
+.logo {
+  width: 240px;
+}
 
-  .icon-user, .icon-cart {
-      width: 20px;
-      height: 20px;
-  }
+.btn-user,
+.btn-cart {
+  border: none;
+  background-color: transparent;
+}
 
-  .nav-icons {
-      gap: 18px;
-      margin-right: 28px;
-  }
+.icon-user,
+.icon-cart {
+  width: 22px;
+  height: 22px;
+}
 
-  .nav-link {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-left: 18px;
-  }
+.nav-icons {
+  gap: 18px;
+  margin-right: 28px;
+}
 
-  .banner {
-      height: 90vh;
-      background-image: url('../resources/couch.jpg');
-      background-color: #000;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 50% 77%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  }
+.nav-link {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 18px;
+}
 
-  .btn-shop {
-      color: white;
-      border: 1px solid white;
-      background-color: transparent;
-      padding: 10px 44px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      
-  }
+.banner {
+  height: 90vh;
+  background-image: url("../resources/couch.jpg");
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 77%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .btn-shop:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-  }
+.btn-shop {
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 10px 44px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
 
-  .welcome-section {
-      max-width: 800px;
-      margin: 100px auto;
+.btn-shop:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
 
-  }
+.welcome-section {
+  max-width: 900px;
+  margin: 100px auto;
+}
 
-  .welcome-link {
-      text-transform: uppercase;
-      color:#333;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 14px;
-  }
+.welcome-link {
+  text-transform: uppercase;
+  color: #333;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+}
 
-  .welcome-link:hover {
-      color: #555;
-      cursor: pointer;
-  }
+.welcome-link:hover {
+  color: #555;
+  cursor: pointer;
+}
 
-  .featured-section {
-      margin-bottom: 100px;
-  }
+.featured-section {
+  margin-bottom: 100px;
+}
 
-  .feature-block {
-      
-      border: 8px solid #fff;
-  }
+.feature-block {
+  border: 8px solid #fff;
+}
 
-  .featured-row {
-      height: 650px;
-  }
+.featured-row {
+  height: 650px;
+}
 
-  .feature-block-nested {
-      height: 325px;
-      border: 8px solid #fff;
-  }
+.feature-block-nested {
+  height: 325px;
+  border: 8px solid #fff;
+}
 
-  .feature-img-1 {
-    background-image: url('../resources/server.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
-  }
-  
+.feature-img-1 {
+  background-image: url("../resources/server.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+}
 
-  .feature-img-2 {
-    background-image: url('../resources/rattan-chair.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 90%;
-  }
+.feature-img-2 {
+  background-image: url("../resources/rattan-chair.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 90%;
+}
 
-  .feature-img-3 {
-    background-image: url('../resources/wood-vases.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    /* background-size: 800px; */
-    background-position: 80% 90%;
-  }
+.feature-img-3 {
+  background-image: url("../resources/wood-vases.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background-size: 800px; */
+  background-position: 80% 90%;
+}
 
-  .feature-img-4 {
-      background-image: url('../resources/desk.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: 50% 100%;
-      height: 650px;
-  }
+.feature-img-4 {
+  background-image: url("../resources/desk.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  height: 650px;
+}
+
+.new-section {
+  margin-bottom: 100px;
+}
+
+.new-img {
+  height: 300px;
+  background-color: #333;
+  border: 8px solid #fff;
+}
+
+.collection-section {
+  background-color: #e3e3e3;
+}
+
+.col-img {
+  height: 400px;
+  background-color: #333;
+  border: 8px solid #e3e3e3;
+}
+
+.subscribe-section {
+  background-color: #adab9e;
+}
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer ul {
+  list-style: none;
+}
