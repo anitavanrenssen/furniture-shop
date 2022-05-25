@@ -16,7 +16,7 @@ body {
 
 .logo {
   width: 220px;
-  padding: 18px;
+  padding: 26px;
 }
 
 .btn-user,
@@ -62,9 +62,11 @@ body {
   padding: 10px 44px;
   letter-spacing: 2px;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .btn-shop:hover {
+  color: #fff;
   background-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -230,4 +232,16 @@ body {
 .col-img-4 {
   background-image: url("../resources/collection-2.jpg");
   background-size: cover;
+}
+
+.banner-contact {
+  height: 60vh;
+  background-image: url("../resources/coffee-1.jpg");
+  background-color: #000;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 75%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
