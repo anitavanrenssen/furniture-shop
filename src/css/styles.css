@@ -10,8 +10,13 @@ body {
   color: #333;
 }
 
+.navbar {
+  background-color: #fff;
+}
+
 .logo {
-  width: 240px;
+  width: 220px;
+  padding: 18px;
 }
 
 .btn-user,
@@ -156,10 +161,73 @@ body {
 
 .footer {
   background-color: #333;
-  color: #fff;
+  color: #adab9e;
   font-size: 14px;
 }
 
 .footer ul {
   list-style: none;
+  padding-left: 0;
+}
+
+.social-links {
+  display: flex;
+  gap: 18px;
+  padding: 28px 0;
+}
+
+.social-icon {
+  height: 22px;
+  width: 22px;
+}
+
+.footer-link {
+  color: #adab9e;
+  text-decoration: none;
+  line-height: 3;
+}
+
+.footer-link:hover {
+  color: #c4c1b2;
+}
+
+.logo-footer {
+  width: 160px;
+}
+
+.copyright {
+  max-width: 230px;
+}
+
+.address {
+  max-width: 200px;
+  padding-top: 11px;
+}
+
+.footer-heading {
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.801);
+}
+
+.col-img-1 {
+  background-image: url("../resources/collection-1.jpg");
+  background-size: cover;
+}
+
+.col-img-2 {
+  background-image: url("../resources/collection-3.jpg");
+  background-size: cover;
+  background-position: 70% 70%;
+}
+
+.col-img-3 {
+  background-image: url("../resources/collection-4.jpg");
+  background-size: cover;
+
+  background-position: 70% 70%;
+}
+
+.col-img-4 {
+  background-image: url("../resources/collection-2.jpg");
+  background-size: cover;
 }
