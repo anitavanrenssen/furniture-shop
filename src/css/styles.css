@@ -94,31 +94,49 @@ body {
   margin-bottom: 100px;
 }
 
-.feature-block {
-  border: 8px solid #fff;
-}
-
 .featured-row {
   height: 650px;
 }
 
 .feature-block-nested {
+  /* border: 8px solid #fff; */
   height: 325px;
-  border: 8px solid #fff;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+@keyframes hoverchange {
+  from {
+    transform: scale(1);
+    filter: opacity(100%);
+  }
+  to {
+    transform: scale(1.1);
+    filter: opacity(40%);
+  }
+}
+
+.feature-block {
+  /* border: 8px solid #fff; */
+  overflow: hidden;
+  height: 650px;
+  padding: 0 !important;
 }
 
 .feature-img-1 {
   background-image: url("../resources/server.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 100%;
+  background-position: 50% 93%;
+  height: 325px;
 }
 
 .feature-img-2 {
   background-image: url("../resources/rattan-chair.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 90%;
+  background-position: 50% 75%;
+  height: 325px;
 }
 
 .feature-img-3 {
@@ -127,6 +145,7 @@ body {
   background-repeat: no-repeat;
   /* background-size: 800px; */
   background-position: 80% 90%;
+  height: 325px;
 }
 
 .feature-img-4 {
@@ -135,6 +154,16 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 100%;
   height: 650px;
+}
+
+.feature-img-4:hover,
+.feature-img-1:hover,
+.feature-img-2:hover,
+.feature-img-3:hover {
+  cursor: pointer;
+  animation-name: hoverchange;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 .new-section {
@@ -157,9 +186,9 @@ body {
   border: 8px solid #e3e3e3;
 }
 
-.subscribe-section {
+/* .subscribe-section {
   background-color: #adab9e;
-}
+} */
 
 .footer {
   background-color: #333;
@@ -214,6 +243,7 @@ body {
 .col-img-1 {
   background-image: url("../resources/collection-1.jpg");
   background-size: cover;
+  background-position: 70% 70%;
 }
 
 .col-img-2 {
@@ -465,4 +495,16 @@ body {
 
 .about-section {
   background-color: #e3e3e3;
+}
+
+.banner-shop {
+  height: 60vh;
+  background-image: url("../resources/bed.jpg");
+  background-color: #333;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

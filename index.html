@@ -46,6 +46,29 @@
     <script src="https://unpkg.com/vue@3"></script>
   </head>
   <body>
+
+    <!-- Shopping cart sidebar -->
+    <div
+    class="offcanvas offcanvas-end"
+    tabindex="-1"
+    id="offcanvasRight"
+    aria-labelledby="offcanvasRightLabel"
+  >
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">
+        Offcanvas right
+      </h5>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div class="offcanvas-body">...</div>
+  </div>
+
+<!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container-fluid">
         <div>
@@ -91,7 +114,10 @@
               <ion-icon class="icon-user" name="person-outline"></ion-icon>
             </button>
             <button class="btn-cart">
-              <ion-icon class="icon-cart" name="cart-outline"></ion-icon>
+              <ion-icon class="icon-cart" name="cart-outline" type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"></ion-icon>
             </button>
           </div>
         </div>
@@ -110,28 +136,30 @@
         exercitationem quaerat, temporibus molestiae quod inventore voluptatum
         perspiciatis similique omnis placeat.
       </p>
-      <a class="welcome-link" href="#">Get to know us &#10095;</a>
+      <a class="welcome-link" href="./src/pages/about.html">Get to know us &#10095;</a>
     </section>
 
-    <section class="container featured-section">
+    <section class="container-fluid p-5 featured-section">
       <h2 class="text-center pb-2">Featured Products</h2>
-      <a class="welcome-link pb-3" href="#">View More &#10095;</a>
+      <a class="welcome-link pb-3" href="./src/pages/shop.html">View More &#10095;</a>
       <div class="row featured-row">
-        <div class="col-md-6 bg-info">
+        <div class="col-md-6">
           <div class="row featured-row">
-            <div
-              class="col-md-12 bg-secondary feature-block-nested feature-img-1"
-            ></div>
-            <div
-              class="col-md-6 bg-danger feature-block-nested feature-img-2"
-            ></div>
-            <div
-              class="col-md-6 bg-success feature-block-nested feature-img-3"
-            ></div>
+            <div class="col-md-12 feature-block-nested">
+              <div class="feature-img-1"></div>
+            </div>
+            <div class="col-md-6 feature-block-nested">
+              <div class="feature-img-2"></div>
+            </div>
+            <div class="col-md-6 feature-block-nested">
+              <div class="feature-img-3"></div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-6 feature-block feature-img-4"></div>
+        <div class="col-md-6 feature-block">
+          <div class="feature-img-4"></div>
+        </div>
       </div>
     </section>
 
@@ -155,7 +183,7 @@
     </section>
 
     <section class="container-fluid collection-section py-5">
-    <section class="container py-5">
+    <section class="container-fluid p-5">
         <h2 class="text-center pb-2">Collections</h2>
         <div class="row">
             <div class="col col-img col-img-1">
