@@ -46,6 +46,28 @@
     <script src="https://unpkg.com/vue@3"></script>
   </head>
   <body>
+     <!-- Shopping cart sidebar -->
+     <div
+     class="offcanvas offcanvas-end"
+     tabindex="-1"
+     id="offcanvasRight"
+     aria-labelledby="offcanvasRightLabel"
+   >
+     <div class="offcanvas-header">
+       <h5 class="offcanvas-title" id="offcanvasRightLabel">
+         Offcanvas right
+       </h5>
+       <button
+         type="button"
+         class="btn-close"
+         data-bs-dismiss="offcanvas"
+         aria-label="Close"
+       ></button>
+     </div>
+     <div class="offcanvas-body">...</div>
+   </div>
+ 
+ <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container-fluid">
         <div>
@@ -89,11 +111,17 @@
             </li>
           </ul>
           <div class="d-flex nav-icons">
-            <button class="btn-user">
-              <ion-icon class="icon-user" name="person-outline"></ion-icon>
+            <button class="btn-nav">
+              <ion-icon class="icon-nav" name="person-outline"></ion-icon>
             </button>
-            <button class="btn-cart">
-              <ion-icon class="icon-cart" name="cart-outline"></ion-icon>
+            <button class="btn-nav">
+              <ion-icon class="icon-nav" name="heart-outline"></ion-icon>
+            </button>
+            <button class="btn-nav">
+              <ion-icon class="icon-nav" name="cart-outline" type="button"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasRight"
+              aria-controls="offcanvasRight"></ion-icon>
             </button>
           </div>
         </div>
