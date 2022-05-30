@@ -237,7 +237,7 @@ body {
 .banner-contact {
   height: 60vh;
   background-image: url("../resources/coffee.jpg");
-  background-color: #000;
+  background-color: #333;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 60%;
@@ -382,4 +382,87 @@ body {
 .lookbook-col-3 div {
   background-color: #555;
   border: 6px solid #fff;
+}
+
+.about-img {
+  background-image: url(../resources/about.jpg);
+  background-size: cover;
+  /* height: 200px; */
+  /* background-position: 50% 100%; */
+}
+
+.banner-about {
+  height: 60vh;
+  background-image: url("../resources/workshop.jpg");
+  background-size: cover;
+  background-color: #333;
+  background-position: 50% 55%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading-about {
+  color: #fff;
+  letter-spacing: 4px;
+  font-size: 54px;
+}
+
+.about-workshop-img-1 {
+  background-image: url("../resources/workshop-5.jpg");
+  background-size: cover;
+  height: 450px;
+  border: 12px solid #e3e3e3;
+  /* filter: grayscale(100%); */
+}
+
+.about-workshop-img-2 {
+  background-image: url("../resources/workshop-3.jpg");
+  background-size: cover;
+  background-position: 50% 80%;
+  height: 450px;
+  border: 12px solid #e3e3e3;
+  /* filter: grayscale(100%); */
+}
+
+.about-workshop-img-3 {
+  background-image: url("../resources/workshop-4.jpg");
+  background-size: cover;
+  background-position: 50% 90%;
+  height: 450px;
+  border: 12px solid #e3e3e3;
+  /* filter: grayscale(100%); */
+}
+
+.about-workshop-img-4 {
+  background-image: url("../resources/workshop-2.jpg");
+  background-size: cover;
+  background-position: 50% 80%;
+  height: 450px;
+  border: 12px solid #e3e3e3;
+  /* filter: grayscale(100%); */
+}
+
+.about-nr {
+  font-size: 108px;
+  font-weight: 700;
+  opacity: 25%;
+}
+
+.about-heading {
+  font-weight: 600;
+}
+
+.about-workshop-block-1,
+.about-workshop-block-3,
+.about-workshop-block-2,
+.about-workshop-block-4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+.about-section {
+  background-color: #e3e3e3;
 }
