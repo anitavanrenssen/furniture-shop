@@ -15,7 +15,7 @@ createApp({
           "../resources/chair-blue.jpg",
           "Bluey Chair",
           "A soft comfortable chair with a rich blue color and oak legs",
-          "R 1,495.00",
+          1495,
           true
         ),
         new Product(
@@ -24,7 +24,7 @@ createApp({
           "../resources/table.jpg",
           "Baobab Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
-          "R 4,695.00",
+          4695,
           true
         ),
         new Product(
@@ -33,7 +33,7 @@ createApp({
           "../resources/brown-couch.jpg",
           "Leather Couch",
           "A 3 seater couch made from 100% cow leather and stainless steel legs",
-          "R 12,595.00",
+          12595,
           true
         ),
         new Product(
@@ -42,10 +42,12 @@ createApp({
           "../resources/chair-brown.jpg",
           "Browny Chair",
           "A soft comfortable chair with a brown color and oak legs",
-          "R 2,295.00",
+          2295,
           true
         ),
       ],
+      shoppingCartArray: [],
+      wishlistArray: [],
     };
   },
   methods: {
@@ -74,12 +76,52 @@ createApp({
           return product.id == id;
         });
 
-        shoppingCartArray.push(shoppingCartProduct);
+        this.shoppingCartArray.push(shoppingCartProduct);
 
         localStorage.setItem(
           SHOPPING_CART_KEY,
-          JSON.stringify(shoppingCartArray)
+          JSON.stringify(this.shoppingCartArray)
         );
+      }
+    },
+    removeFromCart(id) {
+      this.shoppingCartArray = JSON.parse(
+        localStorage.getItem(SHOPPING_CART_KEY)
+      );
+      this.shoppingCartArray = this.shoppingCartArray.filter(function (
+        product
+      ) {
+        return product.id != id;
+      });
+
+      localStorage.setItem(
+        SHOPPING_CART_KEY,
+        JSON.stringify(this.shoppingCartArray)
+      );
+    },
+    addToWishList(id) {
+      // if WISHLIST_KEY is empty
+      if (!localStorage.getItem(WISHLIST_KEY)) {
+        let wishlistArray = [];
+
+        let wishlistProduct = this.productList.find(function (product) {
+          return product.id == id;
+        });
+
+        wishlistArray.push(wishlistProduct);
+
+        localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlistArray));
+      } else {
+        // if WISHLIST_KEY exits, get array and add product to array
+        let wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
+
+        let wishlistProduct = this.productList.find(function (product) {
+          return product.id == id;
+        });
+
+        this.wishlistArray.push(wishlistProduct);
+
+        localStorage.setItem(WISHLIST_KEY, JSON.stringify(this.wishlistArray));
       }
     },
   },
@@ -100,21 +142,36 @@ createApp({
       });
     },
     shoppingCartList() {
+      if (!localStorage.getItem(SHOPPING_CART_KEY)) {
+        let initArray = [];
+        localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify(initArray));
+      }
+
       this.shoppingCartArray = JSON.parse(
         localStorage.getItem(SHOPPING_CART_KEY)
       );
+      // this.shoppingCartArray = JSON.parse(
+      //   localStorage.getItem(SHOPPING_CART_KEY)
+      // );
       return this.shoppingCartArray;
+    },
+    shoppingCartTotal() {
+      let shoppingCartTotal = 0;
+      for (let i = 0; i < this.shoppingCartArray.length; i++) {
+        shoppingCartTotal += this.shoppingCartArray[i].cost;
+      }
+      return shoppingCartTotal;
     },
   },
 
-  mounted() {
-    if (!localStorage.getItem(SHOPPING_CART_KEY)) {
-      let initArray = [];
-      localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify(initArray));
-    }
+  // mounted() {
+  //   if (!localStorage.getItem(SHOPPING_CART_KEY)) {
+  //     let initArray = [];
+  //     localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify(initArray));
+  //   }
 
-    this.shoppingCartArray = JSON.parse(
-      localStorage.getItem(SHOPPING_CART_KEY)
-    );
-  },
+  //   this.shoppingCartArray = JSON.parse(
+  //     localStorage.getItem(SHOPPING_CART_KEY)
+  //   );
+  // },
 }).mount("#app");

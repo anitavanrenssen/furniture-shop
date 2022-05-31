@@ -44,28 +44,57 @@
 
     <!-- link to Vue -->
     <script src="https://unpkg.com/vue@3"></script>
+    
   </head>
   <body>
-     <!-- Shopping cart sidebar -->
-     <div
-     class="offcanvas offcanvas-end"
-     tabindex="-1"
-     id="offcanvasRight"
-     aria-labelledby="offcanvasRightLabel"
-   >
-     <div class="offcanvas-header">
-       <h5 class="offcanvas-title" id="offcanvasRightLabel">
-         Offcanvas right
-       </h5>
-       <button
-         type="button"
-         class="btn-close"
-         data-bs-dismiss="offcanvas"
-         aria-label="Close"
-       ></button>
-     </div>
-     <div class="offcanvas-body">...</div>
-   </div>
+      <!-- Shopping cart sidebar -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">
+            Shopping Cart
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="product-list">
+            <li v-for="product in shoppingCartList" :key="product.id">
+              <div class="card card-override" style="width: 18rem">
+                <img :src="product.image" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  
+                  <div class="d-flex justify-content-between">
+                    <p>R{{ product.cost }}</p>
+                    <div>
+                      <button
+                        class="btn-nav"
+                        @click="removeFromCart(product.id)"
+                      >
+                        <ion-icon
+                          class="icon-nav"
+                          name="trash-outline"
+                        ></ion-icon>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <p>Total: R {{ shoppingCartTotal }}</p>
+          <button><ion-icon name="lock-closed"></ion-icon>Checkout</button>
+        </div>
+      </div>
  
  <!-- Navigation bar -->
     <nav class="navbar navbar-expand-lg sticky-top">
@@ -115,7 +144,7 @@
               <ion-icon class="icon-nav" name="person-outline"></ion-icon>
             </button>
             <button class="btn-nav">
-              <ion-icon class="icon-nav" name="heart-outline"></ion-icon>
+              <a href="./src/pages/wishlist.html"><ion-icon class="icon-nav" name="heart-outline"></ion-icon></a>
             </button>
             <button class="btn-nav">
               <ion-icon class="icon-nav" name="cart-outline" type="button"
