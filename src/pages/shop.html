@@ -46,95 +46,257 @@
     <script src="https://unpkg.com/vue@3"></script>
   </head>
 
-  <body>
-    <!-- Shopping cart sidebar -->
-    <div
-      class="offcanvas offcanvas-end"
-      tabindex="-1"
-      id="offcanvasRight"
-      aria-labelledby="offcanvasRightLabel"
-    >
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel">
-          Offcanvas right
-        </h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="offcanvas"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="offcanvas-body">...</div>
-    </div>
-
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container-fluid">
-        <div>
-          <a class="navbar-brand" href="#">
-            <img
-              class="logo"
-              src="../resources/RENSSEN-logo.png"
-              alt="renssen furniture logo"
-          /></a>
+  <div id="app">
+    <body>
+      <!-- Shopping cart sidebar -->
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasRightLabel">
+            Shopping Cart
+          </h5>
           <button
-            class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./shop.html">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./lookbook.html">Lookbook</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contact.html">Contact</a>
+        <div class="offcanvas-body">
+          <ul class="product-list">
+            <li v-for="product in shoppingCartList" :key="product.id">
+              <div class="card card-override" style="width: 18rem">
+                <img :src="product.image" class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name }}</h5>
+                  <!-- <p class="card-text">{{ product.description }}</p> -->
+                  <div class="d-flex justify-content-between">
+                    <p>{{ product.cost }}</p>
+                    <div>
+                      <!-- <button class="btn-nav">
+                      <ion-icon
+                        class="icon-nav"
+                        name="heart-outline"
+                      ></ion-icon>
+                    </button>
+                    <button class="btn-nav" @click="addToCart(product.id)">
+                      <ion-icon class="icon-nav" name="cart-outline"></ion-icon>
+                    </button> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
-          <div class="d-flex nav-icons">
-            <button class="btn-nav">
-              <ion-icon class="icon-nav" name="person-outline"></ion-icon>
-            </button>
-            <button class="btn-nav">
-              <ion-icon class="icon-nav" name="heart-outline"></ion-icon>
-            </button>
-            <button class="btn-nav">
-              <ion-icon
-                class="icon-nav"
-                name="cart-outline"
-                type="button"
-                data-bs-toggle="offcanvas"
-                data-bs-target="#offcanvasRight"
-                aria-controls="offcanvasRight"
-              ></ion-icon>
-            </button>
-          </div>
         </div>
       </div>
-    </nav>
 
-    <header class="banner-shop">
-      <h1 class="heading-about">Products</h1>
-    </header>
-  </body>
+      <!-- Navigation bar -->
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+          <div>
+            <a class="navbar-brand" href="#">
+              <img
+                class="logo"
+                src="../resources/RENSSEN-logo.png"
+                alt="renssen furniture logo"
+            /></a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="/index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./shop.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./lookbook.html">Lookbook</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="d-flex nav-icons">
+              <button class="btn-nav">
+                <ion-icon class="icon-nav" name="person-outline"></ion-icon>
+              </button>
+              <button class="btn-nav">
+                <ion-icon class="icon-nav" name="heart-outline"></ion-icon>
+              </button>
+              <button class="btn-nav">
+                <ion-icon
+                  class="icon-nav"
+                  name="cart-outline"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                ></ion-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <header class="banner-shop">
+        <h1 class="heading-about">Products</h1>
+      </header>
+
+      <main>
+        <div class="products-section d-flex container-fluid p-5">
+          <!-- <ul class="list-group list-group-flush pe-5">
+            <button
+              type="button"
+              class="list-group-item list-group-item-action active"
+              aria-current="true"
+            >
+              All Products
+            </button>
+            <button
+              @click="displayChairs"
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Chairs
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Couches
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Tables
+            </button>
+            <button
+              type="button"
+              class="list-group-item list-group-item-action"
+            >
+              Servers
+            </button>
+          </ul> -->
+
+          <div class="products-display">
+            <h2>Chairs</h2>
+            <ul class="product-list d-flex">
+              <li v-for="product in chairsList" :key="product.id">
+                <div class="card card-override" style="width: 18rem">
+                  <img :src="product.image" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <!-- <p class="card-text">{{ product.description }}</p> -->
+                    <div class="d-flex justify-content-between">
+                      <p>{{ product.cost }}</p>
+                      <div>
+                        <button class="btn-nav">
+                          <ion-icon
+                            class="icon-nav"
+                            name="heart-outline"
+                          ></ion-icon>
+                        </button>
+                        <button class="btn-nav" @click="addToCart(product.id)">
+                          <ion-icon
+                            class="icon-nav"
+                            name="cart-outline"
+                          ></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <h2>Couches</h2>
+            <ul class="product-list d-flex">
+              <li v-for="product in couchesList" :key="product.id">
+                <div class="card card-override" style="width: 18rem">
+                  <img :src="product.image" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <!-- <p class="card-text">{{ product.description }}</p> -->
+                    <div class="d-flex justify-content-between">
+                      <p>{{ product.cost }}</p>
+                      <div>
+                        <button class="btn-nav">
+                          <ion-icon
+                            class="icon-nav"
+                            name="heart-outline"
+                          ></ion-icon>
+                        </button>
+                        <button class="btn-nav" @click="addToCart(product.id)">
+                          <ion-icon
+                            class="icon-nav"
+                            name="cart-outline"
+                          ></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <h2>Tables</h2>
+            <ul class="product-list d-flex">
+              <li v-for="product in tablesList" :key="product.id">
+                <div class="card card-override" style="width: 18rem">
+                  <img :src="product.image" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <!-- <p class="card-text">{{ product.description }}</p> -->
+                    <div class="d-flex justify-content-between">
+                      <p>{{ product.cost }}</p>
+                      <div>
+                        <button class="btn-nav">
+                          <ion-icon
+                            class="icon-nav"
+                            name="heart-outline"
+                          ></ion-icon>
+                        </button>
+                        <button class="btn-nav" @click="addToCart(product.id)">
+                          <ion-icon
+                            class="icon-nav"
+                            name="cart-outline"
+                          ></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+    </body>
+  </div>
 </html>
