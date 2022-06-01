@@ -168,32 +168,37 @@
       <div class="wishlist-display container-fluid p-5">
         <h2>Wishlist</h2>
         <ul class="product-list d-flex">
-          <li v-for="product in wishList" :key="product.id">
-            <div class="card card-override" style="width: 18rem">
-              <img :src="product.image" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
+
+          <li v-for="product in wishList" :key="product.id" class="product-card">
+            <div class="card card-override">
+              <div class="product-img">
+                <img :src="product.image" class="card-img-top" alt="product.name" />
+              </div>
+              <div class="card-body d-flex flex-column justify-content-center p-4">
+                <h5 class="card-title product-name">{{ product.name }}</h5>
                 <!-- <p class="card-text">{{ product.description }}</p> -->
                 <div class="d-flex justify-content-between">
-                  <p>R{{ product.cost }}</p>
+                  <p class="product-cost mb-0">R{{ product.cost }}</p>
                   <div>
                     <button
-                      class="btn-nav"
-                      @click="removeFromWishList(product.id)"
-                    >
-                      <ion-icon
-                        class="icon-nav"
-                        name="trash-outline"
-                      ></ion-icon>
-                    </button>
-                    <button class="btn-nav" @click="addToCart(product.id)">
-                      <ion-icon class="icon-nav" name="cart-outline"></ion-icon>
-                    </button>
+                    class="btn-nav"
+                    @click="removeFromWishList(product.id)"
+                  >
+                    <ion-icon
+                      class="icon-nav"
+                      name="trash-outline"
+                    ></ion-icon>
+                  </button>
+                  <button class="btn-nav" @click="addToCart(product.id)">
+                    <ion-icon class="icon-nav" name="cart-outline"></ion-icon>
+                  </button>
                   </div>
                 </div>
               </div>
             </div>
           </li>
+
+          
         </ul>
       </div>
       <footer class="footer">

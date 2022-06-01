@@ -50,14 +50,14 @@
     <body>
       <!-- Shopping cart sidebar -->
       <div
-        class="offcanvas offcanvas-end"
+        class="offcanvas offcanvas-end offcanvas-override"
         tabindex="-1"
         id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel"
       >
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasRightLabel">
-            Shopping Cart
+            Shopping Cart ({{ shoppingCartList.length }})
           </h5>
           <button
             type="button"
@@ -68,29 +68,34 @@
         </div>
         <div class="offcanvas-body">
           <ul class="product-list">
-            <li v-for="product in shoppingCartList" :key="product.id">
-              <div class="card card-override" style="width: 18rem">
-                <img :src="product.image" class="card-img-top" alt="..." />
-                <div class="card-body">
-                  <h5 class="card-title">{{ product.name }}</h5>
+
+            <li v-for="product in shoppingCartList" :key="product.id" class="product-card">
+              <div class="card card-override">
+                <div class="cart-product-img">
+                  <img :src="product.image" class="card-img-top" alt="product.name" />
+                </div>
+                <div class="card-body d-flex flex-column justify-content-center p-4">
+                  <h5 class="card-title product-name">{{ product.name }}</h5>
                   <!-- <p class="card-text">{{ product.description }}</p> -->
                   <div class="d-flex justify-content-between">
-                    <p>R{{ product.cost }}</p>
+                    <p class="product-cost mb-0">R{{ product.cost }}</p>
                     <div>
                       <button
-                        class="btn-nav"
-                        @click="removeFromCart(product.id)"
-                      >
-                        <ion-icon
-                          class="icon-nav"
-                          name="trash-outline"
-                        ></ion-icon>
-                      </button>
+                      class="btn-nav"
+                      @click="removeFromCart(product.id)"
+                    >
+                      <ion-icon
+                        class="icon-nav"
+                        name="trash-outline"
+                      ></ion-icon>
+                    </button>
                     </div>
                   </div>
                 </div>
               </div>
             </li>
+
+           
           </ul>
           <p>Total: R {{ shoppingCartTotal }}</p>
           <button><ion-icon name="lock-closed"></ion-icon>Checkout</button>
@@ -208,31 +213,37 @@
             </button>
           </ul> -->
 
-          <div class="products-display">
-            <h2>Chairs</h2>
-            <ul class="product-list d-flex">
-              <li v-for="product in chairsList" :key="product.id">
-                <div class="card card-override" style="width: 18rem">
-                  <img :src="product.image" class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
+          <div class="products-display py-5">
+            <div class="product-category py-5">
+            <h4 class="product-headings pb-3">Chairs</h4>
+            <ul class="products-section ps-0">
+              <li v-for="product in chairsList" :key="product.id" class="product-card">
+                <div class="card card-override">
+                  <div class="product-img">
+                    <img :src="product.image" class="card-img-top" alt="product.name" />
+                  </div>
+                  <div class="card-body d-flex flex-column justify-content-center p-4">
+                    <h5 class="card-title product-name">{{ product.name }}</h5>
                     <!-- <p class="card-text">{{ product.description }}</p> -->
                     <div class="d-flex justify-content-between">
-                      <p>R{{ product.cost }}</p>
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
                       <div>
                         <button
-                          class="btn-nav"
+                          class="btn-nav btn-card me-2"
                           @click="addToWishList(product.id)"
+                          title="Add to Wishlist"
                         >
                           <ion-icon
                             class="icon-nav"
                             name="heart-outline"
+                            
                           ></ion-icon>
                         </button>
-                        <button class="btn-nav" @click="addToCart(product.id)">
+                        <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
                           <ion-icon
                             class="icon-nav"
                             name="cart-outline"
+                           
                           ></ion-icon>
                         </button>
                       </div>
@@ -241,31 +252,38 @@
                 </div>
               </li>
             </ul>
+          </div>
 
-            <h2>Couches</h2>
-            <ul class="product-list d-flex">
-              <li v-for="product in couchesList" :key="product.id">
-                <div class="card card-override" style="width: 18rem">
-                  <img :src="product.image" class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
+          <div class="product-category py-5">
+            <h4 class="product-headings pb-3">Couches</h4>
+            <ul class="products-section ps-0">
+              <li v-for="product in couchesList" :key="product.id" class="product-card">
+                <div class="card card-override">
+                  <div class="product-img">
+                    <img :src="product.image" class="card-img-top" alt="product.name" />
+                  </div>
+                  <div class="card-body d-flex flex-column justify-content-center p-4">
+                    <h5 class="card-title product-name">{{ product.name }}</h5>
                     <!-- <p class="card-text">{{ product.description }}</p> -->
                     <div class="d-flex justify-content-between">
-                      <p>R{{ product.cost }}</p>
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
                       <div>
                         <button
-                          class="btn-nav"
+                          class="btn-nav btn-card me-2"
                           @click="addToWishList(product.id)"
+                          title="Add to Wishlist"
                         >
                           <ion-icon
                             class="icon-nav"
                             name="heart-outline"
+                            
                           ></ion-icon>
                         </button>
-                        <button class="btn-nav" @click="addToCart(product.id)">
+                        <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
                           <ion-icon
                             class="icon-nav"
                             name="cart-outline"
+                           
                           ></ion-icon>
                         </button>
                       </div>
@@ -274,31 +292,38 @@
                 </div>
               </li>
             </ul>
+          </div>
 
-            <h2>Tables</h2>
-            <ul class="product-list d-flex">
-              <li v-for="product in tablesList" :key="product.id">
-                <div class="card card-override" style="width: 18rem">
-                  <img :src="product.image" class="card-img-top" alt="..." />
-                  <div class="card-body">
-                    <h5 class="card-title">{{ product.name }}</h5>
+          <div class="product-category py-5">
+            <h4 class="product-headings pb-3">Tables</h4>
+            <ul class="products-section ps-0">
+              <li v-for="product in tablesList" :key="product.id" class="product-card">
+                <div class="card card-override">
+                  <div class="product-img">
+                    <img :src="product.image" class="card-img-top" alt="product.name" />
+                  </div>
+                  <div class="card-body d-flex flex-column justify-content-center p-4">
+                    <h5 class="card-title product-name">{{ product.name }}</h5>
                     <!-- <p class="card-text">{{ product.description }}</p> -->
                     <div class="d-flex justify-content-between">
-                      <p>R{{ product.cost }}</p>
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
                       <div>
                         <button
-                          class="btn-nav"
+                          class="btn-nav btn-card me-2"
                           @click="addToWishList(product.id)"
+                          title="Add to Wishlist"
                         >
                           <ion-icon
                             class="icon-nav"
                             name="heart-outline"
+                            
                           ></ion-icon>
                         </button>
-                        <button class="btn-nav" @click="addToCart(product.id)">
+                        <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
                           <ion-icon
                             class="icon-nav"
                             name="cart-outline"
+                           
                           ></ion-icon>
                         </button>
                       </div>
@@ -307,6 +332,7 @@
                 </div>
               </li>
             </ul>
+          </div>
           </div>
         </div>
       </main>

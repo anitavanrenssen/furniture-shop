@@ -22,11 +22,13 @@ body {
 .btn-nav {
   border: none;
   background-color: transparent;
+  color: #333 !important;
 }
 
 .icon-nav {
   width: 22px;
   height: 22px;
+  color: #333 !important;
 }
 
 .nav-icons {
@@ -43,8 +45,8 @@ body {
 
 .banner {
   height: 90vh;
-  background-image: url("../resources/couch.jpg");
-  background-color: #000;
+  background-image: url("../resources/couch-4-md.jpg");
+  background-color: #333;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 77%;
@@ -130,7 +132,7 @@ body {
 }
 
 .feature-img-2 {
-  background-image: url("../resources/rattan-chair.jpg");
+  background-image: url("../resources/chair-6-sm.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 75%;
@@ -147,7 +149,7 @@ body {
 }
 
 .feature-img-4 {
-  background-image: url("../resources/desk.jpg");
+  background-image: url("../resources/chair-desk-sm.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 100%;
@@ -429,7 +431,7 @@ body {
 .lookbook-col-1 div,
 .lookbook-col-2 div,
 .lookbook-col-3 div {
-  background-color: #555;
+  background-color: #fff;
   border: 6px solid #fff;
 }
 
@@ -530,7 +532,14 @@ body {
 
 .product-list {
   list-style: none;
-  gap: 16px;
+  gap: 32px;
+}
+
+.products-section {
+  list-style: none;
+  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 22rem);
 }
 
 .card-override {
@@ -540,4 +549,72 @@ body {
 
 .wishlist-display {
   min-height: 100vh;
+}
+
+.carousel-item-override {
+  width: 900px;
+  height: 600px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-img {
+  width: 22rem;
+  height: 23rem;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 90%;
+}
+
+.cart-product-img {
+  width: 18rem;
+  height: 10rem;
+  overflow: hidden;
+}
+
+.cart-product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 90%;
+}
+
+.product-card {
+  box-shadow: 0 15px 30px 7px rgb(0 0 0 / 5%);
+}
+
+.product-name {
+  font-size: 18px;
+}
+
+.product-cost {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btn-card {
+  filter: opacity(60%);
+}
+
+.btn-card:hover {
+  filter: opacity(100%);
+}
+
+.product-headings {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.offcanvas-override {
+  min-width: 600px;
 }
