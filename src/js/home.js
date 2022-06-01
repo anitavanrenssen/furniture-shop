@@ -48,6 +48,7 @@ createApp({
       ],
       shoppingCartArray: [],
       wishlistArray: [],
+      message: "hello",
     };
   },
   methods: {
@@ -150,9 +151,7 @@ createApp({
       this.shoppingCartArray = JSON.parse(
         localStorage.getItem(SHOPPING_CART_KEY)
       );
-      // this.shoppingCartArray = JSON.parse(
-      //   localStorage.getItem(SHOPPING_CART_KEY)
-      // );
+
       return this.shoppingCartArray;
     },
     shoppingCartTotal() {
@@ -161,6 +160,16 @@ createApp({
         shoppingCartTotal += this.shoppingCartArray[i].cost;
       }
       return shoppingCartTotal;
+    },
+    wishList() {
+      if (!localStorage.getItem(WISHLIST_KEY)) {
+        let initArray = [];
+        localStorage.setItem(WISHLIST_KEY, JSON.stringify(initArray));
+      }
+
+      this.wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
+
+      return this.wishlistArray;
     },
   },
 

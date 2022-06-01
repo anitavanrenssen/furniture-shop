@@ -164,6 +164,35 @@
           </div>
         </div>
       </nav>
+
+      <div class="wishlist-display container-fluid p-5">
+        <h2>Wishlist</h2>
+        <ul class="product-list d-flex">
+          <li v-for="product in wishList" :key="product.id">
+            <div class="card card-override" style="width: 18rem">
+              <img :src="product.image" class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h5 class="card-title">{{ product.name }}</h5>
+                <!-- <p class="card-text">{{ product.description }}</p> -->
+                <div class="d-flex justify-content-between">
+                  <p>R{{ product.cost }}</p>
+                  <div>
+                    <button class="btn-nav" @click="addToWishList(product.id)">
+                      <ion-icon
+                        class="icon-nav"
+                        name="heart-outline"
+                      ></ion-icon>
+                    </button>
+                    <button class="btn-nav" @click="addToCart(product.id)">
+                      <ion-icon class="icon-nav" name="cart-outline"></ion-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
     </body>
   </div>
 </html>
