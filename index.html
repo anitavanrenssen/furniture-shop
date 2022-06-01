@@ -71,7 +71,7 @@
       <ul class="product-list">
         <li v-for="product in shoppingCartList" :key="product.id">
           <div class="card card-override" style="width: 18rem">
-            <img :src="product.image" class="card-img-top" alt="..." />
+            <img :src="product.imageHomePath" class="card-img-top" alt="..." />
             <div class="card-body">
               <h5 class="card-title">{{ product.name }}</h5>
               
@@ -162,6 +162,8 @@
     <header class="banner">
       <a class="btn-shop" href="./src/pages/shop.html">shop</a>
     </header>
+
+    
 
     <section class="container welcome-section text-center p-5">
       <h2 class="heading-primary pb-4">Welcome</h2>

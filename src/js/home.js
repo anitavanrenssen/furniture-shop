@@ -16,7 +16,7 @@ createApp({
           "Bluey Chair",
           "A soft comfortable chair with a rich blue color and oak legs",
           1495,
-          true
+          "/src/resources/chair-blue.jpg"
         ),
         new Product(
           "002",
@@ -25,7 +25,7 @@ createApp({
           "Baobab Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           4695,
-          true
+          "/src/resources/table.jpg"
         ),
         new Product(
           "003",
@@ -34,7 +34,7 @@ createApp({
           "Leather Couch",
           "A 3 seater couch made from 100% cow leather and stainless steel legs",
           12595,
-          true
+          "/src/resources/brown-couch.jpg"
         ),
         new Product(
           "004",
@@ -43,7 +43,7 @@ createApp({
           "Browny Chair",
           "A soft comfortable chair with a brown color and oak legs",
           2295,
-          true
+          "/src/resources/chair-brown.jpg"
         ),
       ],
       shoppingCartArray: [],
@@ -101,29 +101,54 @@ createApp({
       );
     },
     addToWishList(id) {
-      // if WISHLIST_KEY is empty
+      // if WISHLIST_KEY is empty, create new array
       if (!localStorage.getItem(WISHLIST_KEY)) {
         let wishlistArray = [];
 
+        // find selected product in product list
         let wishlistProduct = this.productList.find(function (product) {
           return product.id == id;
         });
 
+        // add selected product to array
         wishlistArray.push(wishlistProduct);
 
+        // add array to local storage
         localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlistArray));
       } else {
-        // if WISHLIST_KEY exits, get array and add product to array
+        // if WISHLIST_KEY exits, get existing array
         let wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
 
+        // find selected product in product list
         let wishlistProduct = this.productList.find(function (product) {
           return product.id == id;
         });
 
-        this.wishlistArray.push(wishlistProduct);
+        // check if product already exits in array to prevent duplicate
+        let productExists = wishlistArray.some(
+          (obj) => obj.id === wishlistProduct.id
+        );
 
-        localStorage.setItem(WISHLIST_KEY, JSON.stringify(this.wishlistArray));
+        // if product does not exist, add selected product to array
+        if (!productExists) {
+          wishlistArray.push(wishlistProduct);
+
+          // add array to local storage
+          localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlistArray));
+        }
       }
+    },
+    removeFromWishList(id) {
+      // get existing array
+      this.wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
+
+      // remove selected product from array
+      this.wishlistArray = this.wishlistArray.filter(function (product) {
+        return product.id != id;
+      });
+
+      // add updated array to local storage
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify(this.wishlistArray));
     },
   },
   computed: {
@@ -173,14 +198,12 @@ createApp({
     },
   },
 
-  // mounted() {
-  //   if (!localStorage.getItem(SHOPPING_CART_KEY)) {
-  //     let initArray = [];
-  //     localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify(initArray));
-  //   }
+  mounted() {
+    if (!localStorage.getItem(WISHLIST_KEY)) {
+      let initArray = [];
+      localStorage.setItem(WISHLIST_KEY, JSON.stringify(initArray));
+    }
 
-  //   this.shoppingCartArray = JSON.parse(
-  //     localStorage.getItem(SHOPPING_CART_KEY)
-  //   );
-  // },
+    this.wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
+  },
 }).mount("#app");
