@@ -13,19 +13,21 @@ createApp({
           "001",
           "Chairs",
           "../resources/chair-1-sm.jpg",
-          "Mabibi Dark Chair",
+          "Mabibi Chair - Dark",
           "A soft comfortable chair with a rich blue color and oak legs",
           1495,
-          "/src/resources/chair-1-sm.jpg"
+          "/src/resources/chair-1-sm.jpg",
+          false
         ),
         new Product(
           "002",
           "Tables",
           "../resources/table-1-sm.jpg",
-          "Guma Dining Table",
+          "Hairpin Dining Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           4695,
-          "/src/resources/table-1-sm.jpg"
+          "/src/resources/table-1-sm.jpg",
+          false
         ),
         new Product(
           "003",
@@ -34,16 +36,18 @@ createApp({
           "Mdumbi Leather Couch",
           "A 3 seater couch made from 100% cow leather and stainless steel legs",
           21995,
-          "/src/resources/brown-couch.jpg"
+          "/src/resources/brown-couch.jpg",
+          false
         ),
         new Product(
           "004",
           "Chairs",
           "../resources/chair-table-sm.jpg",
-          "Mabibi Light Chair",
+          "Mabibi Chair - Light",
           "A soft comfortable chair with a brown color and oak legs",
           1495,
-          "/src/resources/chair-table-sm.jpg"
+          "/src/resources/chair-table-sm.jpg",
+          false
         ),
         new Product(
           "005",
@@ -52,7 +56,8 @@ createApp({
           "Ocean Dining Chair",
           "A soft comfortable chair with a brown color and oak legs",
           1395,
-          "/src/resources/chair-2-sm.jpg"
+          "/src/resources/chair-2-sm.jpg",
+          true
         ),
         new Product(
           "006",
@@ -61,7 +66,8 @@ createApp({
           "Adam Dining Chair",
           "A soft comfortable chair with a brown color and oak legs",
           1395,
-          "/src/resources/chair-5-sm.jpg"
+          "/src/resources/chair-5-sm.jpg",
+          false
         ),
         new Product(
           "007",
@@ -70,7 +76,8 @@ createApp({
           "Rattan Occasional Chair",
           "A soft comfortable chair with a brown color and oak legs",
           2995,
-          "/src/resources/chair-6-sm.jpg"
+          "/src/resources/chair-6-sm.jpg",
+          false
         ),
         new Product(
           "008",
@@ -79,7 +86,8 @@ createApp({
           "Rib Dining Chair",
           "A soft comfortable chair with a brown color and oak legs",
           1395,
-          "/src/resources/chair-3-sm.jpg"
+          "/src/resources/chair-3-sm.jpg",
+          true
         ),
         new Product(
           "009",
@@ -88,7 +96,8 @@ createApp({
           "Emma Desk Chair",
           "A soft comfortable chair with a brown color and oak legs",
           1895,
-          "/src/resources/chair-desk-sm.jpg"
+          "/src/resources/chair-desk-sm.jpg",
+          false
         ),
         new Product(
           "010",
@@ -97,7 +106,8 @@ createApp({
           "Lubanzi Chair",
           "A soft comfortable chair with a brown color and oak legs",
           1495,
-          "/src/resources/chair-4-sm.jpg"
+          "/src/resources/chair-4-sm.jpg",
+          false
         ),
         new Product(
           "011",
@@ -106,7 +116,8 @@ createApp({
           "Harker Couch",
           "A soft comfortable chair with a brown color and oak legs",
           18795,
-          "/src/resources/couch-2-sm.jpg"
+          "/src/resources/couch-2-sm.jpg",
+          false
         ),
         new Product(
           "012",
@@ -115,7 +126,8 @@ createApp({
           "Forester Couch",
           "A soft comfortable chair with a brown color and oak legs",
           14495,
-          "/src/resources/couch-3-sm.jpg"
+          "/src/resources/couch-3-sm.jpg",
+          false
         ),
         new Product(
           "013",
@@ -124,7 +136,8 @@ createApp({
           "Coffee Leather Couch",
           "A soft comfortable chair with a brown color and oak legs",
           14495,
-          "/src/resources/couch-4-sm.jpg"
+          "/src/resources/couch-4-sm.jpg",
+          false
         ),
         new Product(
           "014",
@@ -133,7 +146,8 @@ createApp({
           "Okavango Dining Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           3395,
-          "/src/resources/table-3-sm.jpg"
+          "/src/resources/table-3-sm.jpg",
+          false
         ),
         new Product(
           "015",
@@ -142,7 +156,8 @@ createApp({
           "3-Piece Puzzle Side Tables",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           1895,
-          "/src/resources/table-2-sm.jpg"
+          "/src/resources/table-2-sm.jpg",
+          true
         ),
         new Product(
           "016",
@@ -151,7 +166,8 @@ createApp({
           "Ngepi Side Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           1225,
-          "/src/resources/table-5-sm.jpg"
+          "/src/resources/table-5-sm.jpg",
+          false
         ),
         new Product(
           "017",
@@ -160,7 +176,8 @@ createApp({
           "Hairpin Coffee Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           2225,
-          "/src/resources/table-6-sm.jpg"
+          "/src/resources/table-6-sm.jpg",
+          false
         ),
         new Product(
           "018",
@@ -169,7 +186,8 @@ createApp({
           "Violet Bedside Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           895,
-          "/src/resources/table-4-sm.jpg"
+          "/src/resources/table-4-sm.jpg",
+          false
         ),
         new Product(
           "019",
@@ -178,7 +196,98 @@ createApp({
           "Daisy Bedside Table",
           "A 6 seater table made from solid oak wood and stainless steel legs ",
           995,
-          "/src/resources/table-7-sm.jpg"
+          "/src/resources/table-7-sm.jpg",
+          false
+        ),
+        new Product(
+          "020",
+          "Cabinets",
+          "../resources/cabinet-1-sm.jpg",
+          "Kubu Cabinet Dresser",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          3295,
+          "/src/resources/cabinet-1-sm.jpg",
+          true
+        ),
+        new Product(
+          "021",
+          "Cabinets",
+          "../resources/cabinet-3-sm.jpg",
+          "Rose Rattan Cabinet",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          1995,
+          "/src/resources/cabinet-3-sm.jpg",
+          false
+        ),
+        new Product(
+          "022",
+          "Cabinets",
+          "../resources/cabinet-4-sm.jpg",
+          "Mbotyi Drawer",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          2995,
+          "/src/resources/cabinet-4-sm.jpg",
+          false
+        ),
+        new Product(
+          "023",
+          "Cabinets",
+          "../resources/cabinet-5-sm.jpg",
+          "Magwa Cabinet Server",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          2795,
+          "/src/resources/cabinet-5-sm.jpg",
+          false
+        ),
+        new Product(
+          "024",
+          "Shelves",
+          "../resources/shelve-1-sm.jpg",
+          "Zithulele Shelve - Large",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          2885,
+          "/src/resources/shelve-1-sm.jpg",
+          false
+        ),
+        new Product(
+          "025",
+          "Shelves",
+          "../resources/shelve-2-sm.jpg",
+          "Zithulele Shelve - Small",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          1995,
+          "/src/resources/shelve-2-sm.jpg",
+          false
+        ),
+        new Product(
+          "026",
+          "Vases",
+          "../resources/decor-1-sm.jpg",
+          "Letaba Wooden Vase Set",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          895,
+          "/src/resources/decor-1-sm.jpg",
+          false
+        ),
+        new Product(
+          "027",
+          "Vases",
+          "../resources/decor-2-sm.jpg",
+          "Satara Wooden Vase Set",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          895,
+          "/src/resources/decor-2-sm.jpg",
+          false
+        ),
+        new Product(
+          "028",
+          "Vases",
+          "../resources/decor-3-sm.jpg",
+          "Sirheni Wooden Vase Set",
+          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          595,
+          "/src/resources/decor-3-sm.jpg",
+          false
         ),
       ],
       shoppingCartArray: [],
@@ -300,6 +409,26 @@ createApp({
     tablesList() {
       return this.productList.filter((product) => {
         return product.category === "Tables";
+      });
+    },
+    cabinetsList() {
+      return this.productList.filter((product) => {
+        return product.category === "Cabinets";
+      });
+    },
+    shelvesList() {
+      return this.productList.filter((product) => {
+        return product.category === "Shelves";
+      });
+    },
+    vasesList() {
+      return this.productList.filter((product) => {
+        return product.category === "Vases";
+      });
+    },
+    newArrivalsList() {
+      return this.productList.filter((product) => {
+        return product.newArrival;
       });
     },
     shoppingCartList() {

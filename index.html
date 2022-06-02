@@ -205,22 +205,48 @@
       </div>
     </section>
 
-    <section class="container new-section">
+    <section class="container-fluid p-5 new-section">
       <h2 class="text-center pb-2">New Arrivals</h2>
       <a class="welcome-link pb-3" href="#">View More &#10095;</a>
-      <div class="row">
-        <div class="col-sm-6 col-lg-3 new-img">
-          One of three columns
-        </div>
-        <div class="col-sm-6 col-lg-3 new-img">
-          One of three columns
-        </div>
-        <div class="col-sm-6 col-lg-3 new-img">
-          One of three columns
-        </div>
-        <div class="col-sm-6 col-lg-3 new-img">
-            One of three columns
-          </div>
+      <div class="product-category py-5">
+        
+        <ul class="products-section ps-0">
+          <li v-for="product in newArrivalsList" :key="product.id" class="product-card">
+            <div class="card card-override">
+              <div class="product-img">
+                <img :src="product.imageHomePath" class="card-img-top" alt="product.name" />
+              </div>
+              <div class="card-body d-flex flex-column justify-content-center p-4">
+                <h5 class="card-title product-name">{{ product.name }}</h5>
+                <!-- <p class="card-text">{{ product.description }}</p> -->
+                <div class="d-flex justify-content-between">
+                  <p class="product-cost mb-0">R{{ product.cost }}</p>
+                  <div>
+                    <button
+                      class="btn-nav btn-card me-2"
+                      @click="addToWishList(product.id)"
+                      title="Add to Wishlist"
+                    >
+                      <ion-icon
+                        class="icon-nav"
+                        name="heart-outline"
+                        
+                      ></ion-icon>
+                    </button>
+                    <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
+                      <ion-icon
+                        class="icon-nav"
+                        name="cart-outline"
+                       
+                      ></ion-icon>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
          
     </section>
 

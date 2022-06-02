@@ -166,8 +166,8 @@
       </nav>
 
       <div class="wishlist-display container-fluid p-5">
-        <h2>Wishlist</h2>
-        <ul class="product-list d-flex">
+        <h3 class="wishlist-heading pb-3">Wishlist</h2>
+        <ul class="products-section ps-0">
 
           <li v-for="product in wishList" :key="product.id" class="product-card">
             <div class="card card-override">
@@ -181,7 +181,7 @@
                   <p class="product-cost mb-0">R{{ product.cost }}</p>
                   <div>
                     <button
-                    class="btn-nav"
+                    class="btn-nav me-2"
                     @click="removeFromWishList(product.id)"
                   >
                     <ion-icon

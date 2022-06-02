@@ -50,14 +50,14 @@
     <body>
       <!-- Shopping cart sidebar -->
       <div
-        class="offcanvas offcanvas-end offcanvas-override"
+        class="offcanvas offcanvas-end offcanvas-override container-fluid p-4"
         tabindex="-1"
         id="offcanvasRight"
         aria-labelledby="offcanvasRightLabel"
       >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasRightLabel">
-            Shopping Cart ({{ shoppingCartList.length }})
+        <div class="offcanvas-header ">
+          <h5 class="offcanvas-title cart-heading" id="offcanvasRightLabel">
+            Your Shopping Cart ({{ shoppingCartList.length }})
           </h5>
           <button
             type="button"
@@ -67,16 +67,43 @@
           ></button>
         </div>
         <div class="offcanvas-body">
-          <ul class="product-list">
+          <ul class="product-list ps-0">
 
             <li v-for="product in shoppingCartList" :key="product.id" class="product-card">
-              <div class="card card-override">
+
+              <div class="card card-override mb-3">
+                <div class="row g-0 cart-product-img">
+                  <div class="col-md-4">
+                    <img :src="product.image" class="img-fluid rounded-start" :alt="product.name">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body text-end">
+                      <div>
+                        <button
+                        class="btn-nav btn-card"
+                        @click="removeFromCart(product.id)"
+                      >
+                        <ion-icon
+                          class="icon-nav"
+                          name="trash-outline"
+                        ></ion-icon>
+                      </button>
+                      </div>
+                      <h5 class="card-title product-name">{{ product.name }}</h5>
+                     
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="card card-override d-flex">
                 <div class="cart-product-img">
                   <img :src="product.image" class="card-img-top" alt="product.name" />
                 </div>
                 <div class="card-body d-flex flex-column justify-content-center p-4">
                   <h5 class="card-title product-name">{{ product.name }}</h5>
-                  <!-- <p class="card-text">{{ product.description }}</p> -->
+                  
                   <div class="d-flex justify-content-between">
                     <p class="product-cost mb-0">R{{ product.cost }}</p>
                     <div>
@@ -92,13 +119,16 @@
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> -->
             </li>
 
            
           </ul>
-          <p>Total: R {{ shoppingCartTotal }}</p>
-          <button><ion-icon name="lock-closed"></ion-icon>Checkout</button>
+          <p class="cart-total text-end py-3 my-5">Total: R {{ shoppingCartTotal }}</p>
+          <button class="btn-checkout text-uppercase d-flex flex-row align-items-center gap-2 mx-auto">
+            <ion-icon name="lock-closed" class="icon-checkout"></ion-icon>
+            <span>Checkout</span>
+          </button>
         </div>
       </div>
 
@@ -215,7 +245,7 @@
 
           <div class="products-display py-5">
             <div class="product-category py-5">
-            <h4 class="product-headings pb-3">Chairs</h4>
+            <h4 class="product-headings pb-3">Chairs ({{ chairsList.length }})</h4>
             <ul class="products-section ps-0">
               <li v-for="product in chairsList" :key="product.id" class="product-card">
                 <div class="card card-override">
@@ -255,7 +285,7 @@
           </div>
 
           <div class="product-category py-5">
-            <h4 class="product-headings pb-3">Couches</h4>
+            <h4 class="product-headings pb-3">Couches ({{ couchesList.length }})</h4>
             <ul class="products-section ps-0">
               <li v-for="product in couchesList" :key="product.id" class="product-card">
                 <div class="card card-override">
@@ -295,7 +325,7 @@
           </div>
 
           <div class="product-category py-5">
-            <h4 class="product-headings pb-3">Tables</h4>
+            <h4 class="product-headings pb-3">Tables ({{ tablesList.length }})</h4>
             <ul class="products-section ps-0">
               <li v-for="product in tablesList" :key="product.id" class="product-card">
                 <div class="card card-override">
@@ -333,6 +363,127 @@
               </li>
             </ul>
           </div>
+
+          <div class="product-category py-5">
+            <h4 class="product-headings pb-3">Cabinets and Drawers ({{ cabinetsList.length }})</h4>
+            <ul class="products-section ps-0">
+              <li v-for="product in cabinetsList" :key="product.id" class="product-card">
+                <div class="card card-override">
+                  <div class="product-img">
+                    <img :src="product.image" class="card-img-top" alt="product.name" />
+                  </div>
+                  <div class="card-body d-flex flex-column justify-content-center p-4">
+                    <h5 class="card-title product-name">{{ product.name }}</h5>
+                    <!-- <p class="card-text">{{ product.description }}</p> -->
+                    <div class="d-flex justify-content-between">
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
+                      <div>
+                        <button
+                          class="btn-nav btn-card me-2"
+                          @click="addToWishList(product.id)"
+                          title="Add to Wishlist"
+                        >
+                          <ion-icon
+                            class="icon-nav"
+                            name="heart-outline"
+                            
+                          ></ion-icon>
+                        </button>
+                        <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
+                          <ion-icon
+                            class="icon-nav"
+                            name="cart-outline"
+                           
+                          ></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="product-category py-5">
+            <h4 class="product-headings pb-3">Shelves ({{ shelvesList.length }})</h4>
+            <ul class="products-section ps-0">
+              <li v-for="product in shelvesList" :key="product.id" class="product-card">
+                <div class="card card-override">
+                  <div class="product-img">
+                    <img :src="product.image" class="card-img-top" alt="product.name" />
+                  </div>
+                  <div class="card-body d-flex flex-column justify-content-center p-4">
+                    <h5 class="card-title product-name">{{ product.name }}</h5>
+                    <!-- <p class="card-text">{{ product.description }}</p> -->
+                    <div class="d-flex justify-content-between">
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
+                      <div>
+                        <button
+                          class="btn-nav btn-card me-2"
+                          @click="addToWishList(product.id)"
+                          title="Add to Wishlist"
+                        >
+                          <ion-icon
+                            class="icon-nav"
+                            name="heart-outline"
+                            
+                          ></ion-icon>
+                        </button>
+                        <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
+                          <ion-icon
+                            class="icon-nav"
+                            name="cart-outline"
+                           
+                          ></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="product-category py-5">
+            <h4 class="product-headings pb-3">Vases ({{ vasesList.length }})</h4>
+            <ul class="products-section ps-0">
+              <li v-for="product in vasesList" :key="product.id" class="product-card">
+                <div class="card card-override">
+                  <div class="product-img">
+                    <img :src="product.image" class="card-img-top" alt="product.name" />
+                  </div>
+                  <div class="card-body d-flex flex-column justify-content-center p-4">
+                    <h5 class="card-title product-name">{{ product.name }}</h5>
+                    <!-- <p class="card-text">{{ product.description }}</p> -->
+                    <div class="d-flex justify-content-between">
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
+                      <div>
+                        <button
+                          class="btn-nav btn-card me-2"
+                          @click="addToWishList(product.id)"
+                          title="Add to Wishlist"
+                        >
+                          <ion-icon
+                            class="icon-nav"
+                            name="heart-outline"
+                            
+                          ></ion-icon>
+                        </button>
+                        <button class="btn-nav btn-card" @click="addToCart(product.id)"  title="Add to Cart">
+                          <ion-icon
+                            class="icon-nav"
+                            name="cart-outline"
+                           
+                          ></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
           </div>
         </div>
       </main>

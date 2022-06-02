@@ -6,7 +6,8 @@ export class Product {
     productname,
     description,
     cost,
-    imageHomePath
+    imageHomePath,
+    newArrival
   ) {
     this.id = id;
     this.category = category;
@@ -15,5 +16,6 @@ export class Product {
     this.description = description;
     this.cost = cost;
     this.imageHomePath = imageHomePath;
+    this.newArrival = newArrival;
   }
 }
