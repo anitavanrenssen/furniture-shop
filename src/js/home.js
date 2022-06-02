@@ -460,9 +460,6 @@ createApp({
 
       return this.wishlistArray;
     },
-    navToHome() {
-      window.location.href = "../../index.html";
-    },
   },
 
   mounted() {
