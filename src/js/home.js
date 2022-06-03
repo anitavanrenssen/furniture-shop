@@ -1,5 +1,6 @@
 import { Product } from "../classes/Product.js";
 
+// local storage keys
 const SHOPPING_CART_KEY = "shopping-cart-storage-key";
 const WISHLIST_KEY = "wishlist-storage-key";
 
@@ -14,7 +15,7 @@ createApp({
           "Chairs",
           "../resources/chair-1-sm.jpg",
           "Mabibi Chair - Dark",
-          "A soft comfortable chair with a rich blue color and oak legs",
+          "",
           1495,
           "./src/resources/chair-1-sm.jpg",
           false
@@ -24,7 +25,7 @@ createApp({
           "Tables",
           "../resources/table-1-sm.jpg",
           "Hairpin Dining Table",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           4695,
           "./src/resources/table-1-sm.jpg",
           false
@@ -34,7 +35,7 @@ createApp({
           "Couches",
           "../resources/brown-couch.jpg",
           "Mdumbi Leather Couch",
-          "A 3 seater couch made from 100% cow leather and stainless steel legs",
+          "",
           21995,
           "./src/resources/brown-couch.jpg",
           false
@@ -44,7 +45,7 @@ createApp({
           "Chairs",
           "../resources/chair-table-sm.jpg",
           "Mabibi Chair - Light",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           1495,
           "./src/resources/chair-table-sm.jpg",
           false
@@ -54,7 +55,7 @@ createApp({
           "Chairs",
           "../resources/chair-2-sm.jpg",
           "Ocean Dining Chair",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           1395,
           "./src/resources/chair-2-sm.jpg",
           true
@@ -64,7 +65,7 @@ createApp({
           "Chairs",
           "../resources/chair-5-sm.jpg",
           "Adam Dining Chair",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           1395,
           "./src/resources/chair-5-sm.jpg",
           false
@@ -74,7 +75,7 @@ createApp({
           "Chairs",
           "../resources/chair-6-sm.jpg",
           "Rattan Occasional Chair",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           2995,
           "./src/resources/chair-6-sm.jpg",
           false
@@ -84,7 +85,7 @@ createApp({
           "Chairs",
           "../resources/chair-3-sm.jpg",
           "Rib Dining Chair",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           1395,
           "./src/resources/chair-3-sm.jpg",
           true
@@ -94,7 +95,7 @@ createApp({
           "Chairs",
           "../resources/chair-desk-sm.jpg",
           "Emma Desk Chair",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           1895,
           "./src/resources/chair-desk-sm.jpg",
           false
@@ -104,7 +105,7 @@ createApp({
           "Chairs",
           "../resources/chair-4-sm.jpg",
           "Lubanzi Chair",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           1495,
           "./src/resources/chair-4-sm.jpg",
           false
@@ -114,7 +115,7 @@ createApp({
           "Couches",
           "../resources/couch-2-sm.jpg",
           "Harker Couch",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           18795,
           "./src/resources/couch-2-sm.jpg",
           false
@@ -124,7 +125,7 @@ createApp({
           "Couches",
           "../resources/couch-3-sm.jpg",
           "Forester Couch",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           14495,
           "./src/resources/couch-3-sm.jpg",
           false
@@ -134,7 +135,7 @@ createApp({
           "Couches",
           "../resources/couch-4-sm.jpg",
           "Coffee Leather Couch",
-          "A soft comfortable chair with a brown color and oak legs",
+          "",
           14495,
           "./src/resources/couch-4-sm.jpg",
           false
@@ -144,7 +145,7 @@ createApp({
           "Tables",
           "../resources/table-3-sm.jpg",
           "Okavango Dining Table",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           3395,
           "./src/resources/table-3-sm.jpg",
           false
@@ -154,7 +155,7 @@ createApp({
           "Tables",
           "../resources/table-2-sm.jpg",
           "3-Piece Puzzle Side Tables",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           1895,
           "./src/resources/table-2-sm.jpg",
           true
@@ -164,7 +165,7 @@ createApp({
           "Tables",
           "../resources/table-5-sm.jpg",
           "Ngepi Side Table",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           1225,
           "./src/resources/table-5-sm.jpg",
           false
@@ -174,7 +175,7 @@ createApp({
           "Tables",
           "../resources/table-6-sm.jpg",
           "Hairpin Coffee Table",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           2225,
           "./src/resources/table-6-sm.jpg",
           false
@@ -184,7 +185,7 @@ createApp({
           "Tables",
           "../resources/table-4-sm.jpg",
           "Violet Bedside Table",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           895,
           "./src/resources/table-4-sm.jpg",
           false
@@ -194,7 +195,7 @@ createApp({
           "Tables",
           "../resources/table-7-sm.jpg",
           "Daisy Bedside Table",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           995,
           "./src/resources/table-7-sm.jpg",
           false
@@ -204,7 +205,7 @@ createApp({
           "Cabinets",
           "../resources/cabinet-1-sm.jpg",
           "Kubu Cabinet Dresser",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           3295,
           "./src/resources/cabinet-1-sm.jpg",
           true
@@ -214,7 +215,7 @@ createApp({
           "Cabinets",
           "../resources/cabinet-3-sm.jpg",
           "Rose Rattan Cabinet",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           1995,
           "./src/resources/cabinet-3-sm.jpg",
           false
@@ -224,7 +225,7 @@ createApp({
           "Cabinets",
           "../resources/cabinet-4-sm.jpg",
           "Mbotyi Drawer",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           2995,
           "./src/resources/cabinet-4-sm.jpg",
           false
@@ -234,7 +235,7 @@ createApp({
           "Cabinets",
           "../resources/cabinet-5-sm.jpg",
           "Magwa Cabinet Server",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           2795,
           "./src/resources/cabinet-5-sm.jpg",
           false
@@ -244,7 +245,7 @@ createApp({
           "Shelves",
           "../resources/shelve-1-sm.jpg",
           "Zithulele Shelve - Large",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           2885,
           "./src/resources/shelve-1-sm.jpg",
           false
@@ -254,7 +255,7 @@ createApp({
           "Shelves",
           "../resources/shelve-2-sm.jpg",
           "Zithulele Shelve - Small",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           1995,
           "./src/resources/shelve-2-sm.jpg",
           false
@@ -264,7 +265,7 @@ createApp({
           "Vases",
           "../resources/decor-1-sm.jpg",
           "Letaba Wooden Vase Set",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           895,
           "./src/resources/decor-1-sm.jpg",
           false
@@ -274,7 +275,7 @@ createApp({
           "Vases",
           "../resources/decor-2-sm.jpg",
           "Satara Wooden Vase Set",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           895,
           "./src/resources/decor-2-sm.jpg",
           false
@@ -284,7 +285,7 @@ createApp({
           "Vases",
           "../resources/decor-3-sm.jpg",
           "Sirheni Wooden Vase Set",
-          "A 6 seater table made from solid oak wood and stainless steel legs ",
+          "",
           595,
           "./src/resources/decor-3-sm.jpg",
           false
@@ -295,18 +296,22 @@ createApp({
       message: "hello",
     };
   },
+
   methods: {
     addToCart(id) {
-      // if SHOPPING_CART_KEY is empty
+      // if SHOPPING_CART_KEY is empty, create new array
       if (!localStorage.getItem(SHOPPING_CART_KEY)) {
         let shoppingCartArray = [];
 
+        // find selected product in product list
         let shoppingCartProduct = this.productList.find(function (product) {
           return product.id == id;
         });
 
+        // add selected product to array
         shoppingCartArray.push(shoppingCartProduct);
 
+        // add array to local storage
         localStorage.setItem(
           SHOPPING_CART_KEY,
           JSON.stringify(shoppingCartArray)
@@ -317,33 +322,42 @@ createApp({
           localStorage.getItem(SHOPPING_CART_KEY)
         );
 
+        // find selected product in product list
         let shoppingCartProduct = this.productList.find(function (product) {
           return product.id == id;
         });
 
+        // add selected product to array
         this.shoppingCartArray.push(shoppingCartProduct);
 
+        // add array to local storage
         localStorage.setItem(
           SHOPPING_CART_KEY,
           JSON.stringify(this.shoppingCartArray)
         );
       }
     },
+
     removeFromCart(id) {
+      // get array and add product to array
       this.shoppingCartArray = JSON.parse(
         localStorage.getItem(SHOPPING_CART_KEY)
       );
+
+      // remove selected product from array
       this.shoppingCartArray = this.shoppingCartArray.filter(function (
         product
       ) {
         return product.id != id;
       });
 
+      // add updated array to local storage
       localStorage.setItem(
         SHOPPING_CART_KEY,
         JSON.stringify(this.shoppingCartArray)
       );
     },
+
     addToWishList(id) {
       // if WISHLIST_KEY is empty, create new array
       if (!localStorage.getItem(WISHLIST_KEY)) {
@@ -382,6 +396,7 @@ createApp({
         }
       }
     },
+
     removeFromWishList(id) {
       // get existing array
       this.wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
@@ -395,7 +410,9 @@ createApp({
       localStorage.setItem(WISHLIST_KEY, JSON.stringify(this.wishlistArray));
     },
   },
+
   computed: {
+    // filter products according to category
     chairsList() {
       return this.productList.filter((product) => {
         return product.category === "Chairs";
@@ -432,17 +449,20 @@ createApp({
       });
     },
     shoppingCartList() {
+      // if SHOPPING_CART_KEY is empty, create new array
       if (!localStorage.getItem(SHOPPING_CART_KEY)) {
         let initArray = [];
         localStorage.setItem(SHOPPING_CART_KEY, JSON.stringify(initArray));
       }
 
+      // if SHOPPING_CART_KEY exits, get existing array
       this.shoppingCartArray = JSON.parse(
         localStorage.getItem(SHOPPING_CART_KEY)
       );
 
       return this.shoppingCartArray;
     },
+
     shoppingCartTotal() {
       let shoppingCartTotal = 0;
       for (let i = 0; i < this.shoppingCartArray.length; i++) {
@@ -450,12 +470,15 @@ createApp({
       }
       return shoppingCartTotal;
     },
+
     wishList() {
+      // if WISHLIST_KEY is empty, create new array
       if (!localStorage.getItem(WISHLIST_KEY)) {
         let initArray = [];
         localStorage.setItem(WISHLIST_KEY, JSON.stringify(initArray));
       }
 
+      // if WISHLIST_KEY exits, get existing array
       this.wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
 
       return this.wishlistArray;
@@ -463,11 +486,13 @@ createApp({
   },
 
   mounted() {
+    // if WISHLIST_KEY is empty, create new array
     if (!localStorage.getItem(WISHLIST_KEY)) {
       let initArray = [];
       localStorage.setItem(WISHLIST_KEY, JSON.stringify(initArray));
     }
 
+    // if WISHLIST_KEY exits, get existing array
     this.wishlistArray = JSON.parse(localStorage.getItem(WISHLIST_KEY));
   },
 }).mount("#app");

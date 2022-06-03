@@ -1,3 +1,7 @@
+/******************************
+     ALL PAGES
+******************************/
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +14,8 @@ body {
   color: #333;
 }
 
+/********** NAVIGATION BAR **********/
+
 .navbar {
   background-color: #fff;
 }
@@ -17,6 +23,13 @@ body {
 .logo {
   width: 220px;
   padding: 26px 26px 26px 0;
+}
+
+.nav-link {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 18px;
 }
 
 .btn-nav {
@@ -35,177 +48,64 @@ body {
   gap: 18px;
 }
 
-.nav-link {
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-left: 18px;
+.cart-badge {
+  font-size: 10px;
 }
 
-.banner {
-  height: 90vh;
-  background-image: url("../resources/couch-4-md.jpg");
-  background-color: #333;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 77%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.nav-icons-mobile {
+  display: none !important;
 }
 
-.btn-shop {
-  color: white;
-  border: 1px solid white;
-  background-color: transparent;
-  padding: 10px 44px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.btn-shop:hover {
-  color: #fff;
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-.welcome-section {
-  max-width: 900px;
-  margin: 100px auto;
-}
-
-.welcome-link {
-  text-transform: uppercase;
-  color: #333;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 14px;
+.nav-icons-desktop {
   display: block;
-  text-align: center;
 }
 
-.welcome-link:hover {
-  color: #555;
-  cursor: pointer;
-}
-
-.featured-section {
-  margin-bottom: 100px;
-}
-
-.featured-row {
-  height: 650px;
-}
-
-@keyframes hoverchange {
-  from {
-    transform: scale(1);
-    /* filter: opacity(100%); */
-  }
-  to {
-    transform: scale(1.04);
-    /* filter: opacity(40%); */
-  }
-}
-
-.feature-block {
-  border: 6px solid #fff;
-  overflow: hidden;
-  height: 650px;
-  padding: 0 !important;
-}
-
-.feature-block-nested {
-  border: 6px solid #fff;
-  height: 325px;
-  overflow: hidden;
-  padding: 0 !important;
-}
-
-.feature-img-1 {
-  background-image: url("../resources/cabinet-1-sm.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  height: 325px;
-}
-
-.feature-img-2 {
-  background-image: url("../resources/chair-6-sm.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 75%;
-  height: 325px;
-}
-
-.feature-img-3 {
-  background-image: url("../resources/decor-2-sm.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  /* background-size: 800px; */
-  background-position: 80% 95%;
-  height: 325px;
-}
-
-.feature-img-4 {
-  background-image: url("../resources/chair-desk-sm.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 100%;
-  height: 650px;
+.navbar-mobile {
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-.feature-text-4 {
-  display: none;
-  color: #333;
-  background-color: #fff;
-  width: 100%;
+/********** CART SIDEBAR **********/
+
+.offcanvas-override {
+  min-width: 550px;
 }
 
-.feature-img-4:hover,
-.feature-img-1:hover,
-.feature-img-2:hover,
-.feature-img-3:hover {
-  cursor: pointer;
-  animation-name: hoverchange;
-  animation-duration: 0.8s;
-  animation-fill-mode: forwards;
+.cart-heading {
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.new-section {
-  margin-bottom: 100px;
+.product-card-cart {
+  box-shadow: 0 15px 30px 7px rgb(0 0 0 / 2%);
 }
 
-.new-img {
-  height: 300px;
-  background-color: #333;
-  border: 8px solid #fff;
-}
-
-.collection-section {
-  background-color: #e3e3e3;
-}
-
-.col-img {
-  height: 400px;
-  border: 12px solid #e3e3e3;
+.cart-product-img {
+  height: 10rem;
   overflow: hidden;
-  cursor: pointer;
 }
 
-.col-img img {
+.cart-product-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 75%;
+  object-position: 50% 90%;
 }
 
-/* .subscribe-section {
-  background-color: #adab9e;
-} */
+.cart-total {
+  border-top: 1px solid rgba(51, 51, 51, 0.2);
+  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+}
+
+.btn-checkout {
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  letter-spacing: 2px;
+  padding: 12px 20px;
+  border: none;
+}
+
+/********** FOOTER **********/
 
 .footer {
   background-color: #333;
@@ -257,110 +157,272 @@ body {
   color: rgba(255, 255, 255, 0.801);
 }
 
-/* .col-img-1 {
-  background-image: url("../resources/collection-1.jpg");
-  background-size: cover;
-  background-position: 70% 70%;
-}
+/******************************
+     HOME PAGE
+******************************/
 
-.col-img-2 {
-  background-image: url("../resources/collection-3.jpg");
-  background-size: cover;
-  background-position: 70% 70%;
-}
+/********** BANNER & WELCOME SECTION **********/
 
-.col-img-3 {
-  background-image: url("../resources/collection-4.jpg");
-  background-size: cover;
-
-  background-position: 70% 70%;
-}
-
-.col-img-4 {
-  background-image: url("../resources/collection-2.jpg");
-  background-size: cover;
-} */
-
-.banner-contact {
-  height: 60vh;
-  background-image: url("../resources/coffee.jpg");
+.banner {
+  height: 90vh;
+  background-image: url("../resources/couch-4-md.jpg");
   background-color: #333;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 60%;
+  background-position: 50% 77%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.heading-contact {
-  color: #fff;
-  letter-spacing: 4px;
-  font-size: 54px;
-}
-
-.contacts-list {
-  list-style: none;
-  padding-left: 0;
-}
-
-.contacts-list a {
-  color: #333;
+.btn-shop {
+  color: white;
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 10px 44px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 1px solid rgba(51, 51, 51, 0.568);
 }
 
-.contact-icon {
-  font-size: 32px;
-  color: rgba(51, 51, 51, 0.705);
-  padding-bottom: 22px;
+.btn-shop:hover {
+  color: #fff;
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+.welcome-section {
+  max-width: 900px;
+  margin: 100px auto;
 }
 
-.contact-section {
+.heading-primary {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.welcome-link {
+  text-transform: uppercase;
+  color: #333;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  text-align: center;
+}
+
+.welcome-link:hover {
+  color: #555;
+  cursor: pointer;
+}
+
+/********** FEATURED PRODUCTS SECTION **********/
+
+.featured-section {
+  margin-bottom: 100px;
+}
+
+.featured-row {
+  height: 650px;
+}
+
+@keyframes hoverchange {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.04);
+  }
+}
+
+.feature-block {
+  border: 6px solid #fff;
+  overflow: hidden;
+  height: 650px;
+  padding: 0 !important;
+}
+
+.feature-block-nested {
+  border: 6px solid #fff;
+  height: 325px;
+  overflow: hidden;
+  padding: 0 !important;
+}
+
+.feature-img-1 {
+  background-image: url("../resources/cabinet-1-sm.jpg");
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 325px;
+}
+
+.feature-img-2 {
+  background-image: url("../resources/chair-6-sm.jpg");
+  background-size: cover;
+  background-position: 50% 75%;
+  height: 325px;
+}
+
+.feature-img-3 {
+  background-image: url("../resources/decor-2-sm.jpg");
+  background-size: cover;
+  background-position: 80% 95%;
+  height: 325px;
+}
+
+.feature-img-4 {
+  background-image: url("../resources/chair-desk-sm.jpg");
+  background-size: cover;
+  background-position: 50% 100%;
+  height: 650px;
+}
+
+.feature-img-4:hover,
+.feature-img-1:hover,
+.feature-img-2:hover,
+.feature-img-3:hover {
+  cursor: pointer;
+  animation-name: hoverchange;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+/********** NEW ARRIVALS SECTION **********/
+
+.new-section {
+  margin-bottom: 100px;
+}
+
+.new-img {
+  height: 300px;
+  background-color: #333;
+  border: 8px solid #fff;
+}
+
+/********** COLLECTIONS SECTION **********/
+
+.collection-section {
   background-color: #e3e3e3;
 }
 
-.contact-input {
-  border: none;
-  padding: 12px;
-  border-radius: 5px;
+.col-img {
+  height: 400px;
+  border: 12px solid #e3e3e3;
+  overflow: hidden;
+  cursor: pointer;
 }
 
-.btn-contact-form {
-  margin-top: 22px;
-  text-transform: uppercase;
-  padding: 22px;
-  border: none;
-  border-radius: 5px;
+.col-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 75%;
+}
+
+/******************************
+     PRODUCTS & WISHLIST PAGE
+******************************/
+
+/********** PRODUCTS PAGE BANNER **********/
+
+.banner-shop {
+  height: 60vh;
+  background-image: url("../resources/bed.jpg");
   background-color: #333;
-  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 42%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/********** PRODUCT DISPLAY SECTION **********/
+
+.products-section {
+  list-style: none;
+  gap: 32px;
+  display: grid;
+  grid-template-columns: repeat(4, 22rem);
+  justify-content: center;
+}
+
+.product-headings {
+  text-transform: uppercase;
   letter-spacing: 2px;
 }
 
-.heading-secondary-contact {
-  margin-bottom: 32px;
+.product-list {
+  list-style: none;
+  gap: 32px;
 }
 
-/* .lookbook-img-1,
-.lookbook-img-2,
-.lookbook-img-3 {
-  background-color: #555;
-} */
-/* .lookbook-section {
-  grid-template-columns: 1fr 1fr 1fr;
-} */
+.card-override {
+  border-radius: 0 !important;
+  border: none;
+}
 
-/* .lookbook-section div {
-  background-color: #555;
-  border: 4px solid #fff;
-  width: 33%;
-} */
+.product-card {
+  box-shadow: 0 15px 30px 7px rgb(0 0 0 / 5%);
+}
+
+.product-img {
+  width: 22rem;
+  height: 23rem;
+  overflow: hidden;
+}
+
+.product-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 90%;
+}
+
+.product-name {
+  font-size: 18px;
+}
+
+.product-cost {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.btn-card {
+  filter: opacity(60%);
+}
+
+.btn-card:hover {
+  filter: opacity(100%);
+}
+
+.wishlist-display {
+  min-height: 100vh;
+}
+
+.wishlist-heading {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/******************************
+     LOOKBOOK PAGE
+******************************/
+
+.lookbook-col-1 {
+  width: 35%;
+}
+.lookbook-col-2 {
+  width: 30%;
+}
+.lookbook-col-3 {
+  width: 35%;
+}
+
+.lookbook-col-1 div,
+.lookbook-col-2 div,
+.lookbook-col-3 div {
+  border: 6px solid #fff;
+}
 
 @keyframes hoverscale {
   from {
@@ -392,14 +454,23 @@ body {
   height: 600px;
 }
 
-.lookbook-img-7 {
-  height: 600px;
+.lookbook-img-1 img {
+  object-position: 50% 90%;
 }
+
 .lookbook-img-2 {
   height: 300px;
 }
+
+.lookbook-img-2 img {
+  object-position: 50% 100%;
+}
+
 .lookbook-img-3 {
   height: 500px;
+}
+.lookbook-img-3 img {
+  object-position: 50% 100%;
 }
 
 .lookbook-img-4 {
@@ -409,43 +480,45 @@ body {
 .lookbook-img-5 {
   height: 450px;
 }
+
+.lookbook-img-5 img {
+  object-position: 50% 100%;
+}
 .lookbook-img-6 {
   height: 650px;
 }
+
+.lookbook-img-7 {
+  height: 600px;
+}
+
+.lookbook-img-7 img {
+  object-position: 50% 100%;
+}
+
 .lookbook-img-8 {
   height: 800px;
 }
 
-.lookbook-col-1 {
-  width: 35%;
-}
-.lookbook-col-2 {
-  width: 30%;
-}
-.lookbook-col-3 {
-  width: 35%;
-}
+/********** MODAL GALLERY **********/
 
-.lookbook-col-1 div,
-.lookbook-col-2 div,
-.lookbook-col-3 div {
-  background-color: #fff;
-  border: 6px solid #fff;
-}
-
-.about-img {
+.carousel-item-override {
+  width: 900px;
+  height: 600px;
   overflow: hidden;
-  /* background-image: url(../resources/about.jpg);
-  background-size: cover; */
-  /* height: 200px; */
-  /* background-position: 50% 100%; */
 }
 
-.about-img img {
+.carousel-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
+
+/******************************
+     ABOUT PAGE
+******************************/
+
+/********** BANNER **********/
 
 .banner-about {
   height: 60vh;
@@ -464,12 +537,29 @@ body {
   font-size: 54px;
 }
 
+/********** THIS IS US SECTION **********/
+
+.about-img {
+  overflow: hidden;
+}
+
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/********** WORKSHOP SECTION **********/
+
+.about-section {
+  background-color: #e3e3e3;
+}
+
 .about-workshop-img-1 {
   background-image: url("../resources/workshop-5.jpg");
   background-size: cover;
   height: 450px;
   border: 12px solid #e3e3e3;
-  /* filter: grayscale(100%); */
 }
 
 .about-workshop-img-2 {
@@ -478,7 +568,6 @@ body {
   background-position: 50% 80%;
   height: 450px;
   border: 12px solid #e3e3e3;
-  /* filter: grayscale(100%); */
 }
 
 .about-workshop-img-3 {
@@ -487,7 +576,6 @@ body {
   background-position: 50% 90%;
   height: 450px;
   border: 12px solid #e3e3e3;
-  /* filter: grayscale(100%); */
 }
 
 .about-workshop-img-4 {
@@ -496,7 +584,6 @@ body {
   background-position: 50% 80%;
   height: 450px;
   border: 12px solid #e3e3e3;
-  /* filter: grayscale(100%); */
 }
 
 .about-nr {
@@ -519,142 +606,83 @@ body {
   align-items: end;
 }
 
-.about-section {
-  background-color: #e3e3e3;
-}
+/******************************
+     CONTACT PAGE
+******************************/
 
-.banner-shop {
+/********** BANNER **********/
+
+.banner-contact {
   height: 60vh;
-  background-image: url("../resources/bed.jpg");
+  background-image: url("../resources/coffee.jpg");
   background-color: #333;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 42%;
+  background-position: 50% 60%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.product-list {
-  list-style: none;
-  gap: 32px;
+.heading-contact {
+  color: #fff;
+  letter-spacing: 4px;
+  font-size: 54px;
 }
 
-.products-section {
+/********** CONTACT DETAILS **********/
+
+.contacts-list {
   list-style: none;
-  gap: 32px;
-  display: grid;
-  grid-template-columns: repeat(4, 22rem);
-  justify-content: center;
+  padding-left: 0;
 }
 
-.card-override {
-  border-radius: 0 !important;
+.contacts-list a {
+  color: #333;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.568);
+}
+
+.contact-icon {
+  font-size: 32px;
+  color: rgba(51, 51, 51, 0.705);
+  padding-bottom: 22px;
+}
+
+/********** CONTACT FORM **********/
+
+.contact-section {
+  background-color: #e3e3e3;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contact-input {
   border: none;
+  padding: 12px;
+  border-radius: 5px;
 }
 
-.wishlist-display {
-  min-height: 100vh;
-}
-
-.carousel-item-override {
-  width: 900px;
-  height: 600px;
-  overflow: hidden;
-}
-
-.carousel-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.product-img {
-  width: 22rem;
-  height: 23rem;
-  overflow: hidden;
-}
-
-.product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 90%;
-}
-
-.cart-product-img {
-  height: 10rem;
-  overflow: hidden;
-}
-
-.cart-product-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 90%;
-}
-
-.product-card {
-  box-shadow: 0 15px 30px 7px rgb(0 0 0 / 5%);
-}
-.product-card-cart {
-  box-shadow: 0 15px 30px 7px rgb(0 0 0 / 2%);
-}
-
-.product-name {
-  font-size: 18px;
-}
-
-.product-cost {
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.btn-card {
-  filter: opacity(60%);
-}
-
-.btn-card:hover {
-  filter: opacity(100%);
-}
-
-.product-headings {
+.btn-contact-form {
+  margin-top: 22px;
   text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.offcanvas-override {
-  min-width: 550px;
-}
-
-.wishlist-heading {
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.cart-heading {
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.btn-checkout {
-  font-size: 16px;
+  padding: 22px;
+  border: none;
+  border-radius: 5px;
   background-color: #333;
   color: #fff;
   letter-spacing: 2px;
-  padding: 8px 16px;
 }
 
-.cart-total {
-  border-top: 1px solid rgba(51, 51, 51, 0.2);
-  border-bottom: 1px solid rgba(51, 51, 51, 0.2);
+.heading-secondary-contact {
+  margin-bottom: 32px;
 }
 
-.cart-badge {
-  font-size: 12px;
-}
-
-.heading-primary {
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.contact-map {
+  width: 600px;
+  height: 465px;
 }

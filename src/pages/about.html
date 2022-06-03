@@ -47,305 +47,391 @@
   </head>
 
   <div id="app">
-  <body>
-     <!-- Shopping cart sidebar -->
-     <div
-     class="offcanvas offcanvas-end offcanvas-override container-fluid p-4"
-     tabindex="-1"
-     id="offcanvasRight"
-     aria-labelledby="offcanvasRightLabel"
-   >
-     <div class="offcanvas-header ">
-       <h5 class="offcanvas-title cart-heading" id="offcanvasRightLabel">
-         Your Shopping Cart ({{ shoppingCartList.length }})
-       </h5>
-       <button
-         type="button"
-         class="btn-close"
-         data-bs-dismiss="offcanvas"
-         aria-label="Close"
-       ></button>
-     </div>
-     <div class="offcanvas-body">
-       <ul class="product-list ps-0">
-
-         <li v-for="product in shoppingCartList" :key="product.id" class="product-card-cart">
-
-           <div class="card card-override mb-3">
-             <div class="row g-0 ">
-               <div class="col-md-4 cart-product-img">
-                 <img :src="product.image" class="img-fluid " :alt="product.name">
-               </div>
-               <div class="col-md-8">
-                 <div class="card-body text-end pt-4 pe-4">
-                   <div>
-                     <button
-                     class="btn-nav btn-card mb-4"
-                     @click="removeFromCart(product.id)"
-                   >
-                     <ion-icon
-                       class="icon-nav"
-                       name="trash-outline"
-                     ></ion-icon>
-                   </button>
-                   </div>
-                   <h5 class="card-title product-name">{{ product.name }}</h5>
-                  
-                   <p class="product-cost mb-0">R{{ product.cost }}</p>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </li> 
-       </ul>
-       <p class="cart-total text-end py-3 my-5 pe-4">Total: R {{ shoppingCartTotal }}</p>
-       <button class="btn-checkout text-uppercase d-flex flex-row align-items-center gap-2 mx-auto">
-         <ion-icon name="lock-closed" class="icon-checkout"></ion-icon>
-         <span>Checkout</span>
-       </button>
-     </div>
-   </div>
- 
- <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container-fluid px-5">
-        <div>
-          <a class="navbar-brand" href="../../index.html">
-            <img
-              class="logo"
-              src="../resources/RENSSEN-logo.png"
-              alt="renssen furniture logo"
-          /></a>
+    <body>
+      <!-- Shopping cart sidebar -->
+      <div
+        class="offcanvas offcanvas-end offcanvas-override container-fluid p-4"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title cart-heading" id="offcanvasRightLabel">
+            Your Shopping Cart ({{ shoppingCartList.length }})
+          </h5>
           <button
-            class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="product-list ps-0">
+            <li
+              v-for="product in shoppingCartList"
+              :key="product.id"
+              class="product-card-cart"
+            >
+              <div class="card card-override mb-3">
+                <div class="row g-0">
+                  <div class="col-md-4 cart-product-img">
+                    <img
+                      :src="product.image"
+                      class="img-fluid"
+                      :alt="product.name"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body text-end pt-4 pe-4">
+                      <div>
+                        <button
+                          class="btn-nav btn-card mb-4"
+                          @click="removeFromCart(product.id)"
+                        >
+                          <ion-icon
+                            class="icon-nav"
+                            name="trash-outline"
+                          ></ion-icon>
+                        </button>
+                      </div>
+                      <h5 class="card-title product-name">
+                        {{ product.name }}
+                      </h5>
+
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <p class="cart-total text-end py-3 my-5 pe-4">
+            Total: R {{ shoppingCartTotal }}
+          </p>
+          <button
+            class="btn-checkout text-uppercase d-flex flex-row align-items-center gap-2 mx-auto"
           >
-            <span class="navbar-toggler-icon"></span>
+            <ion-icon name="lock-closed" class="icon-checkout"></ion-icon>
+            <span>Checkout</span>
           </button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../../index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./shop.html">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./lookbook.html">Lookbook</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contact.html">Contact</a>
-            </li>
-          </ul>
-          <div class="d-flex nav-icons">
-            <button class="btn-nav">
-              <ion-icon class="icon-nav" name="person-outline"></ion-icon>
-            </button>
-            <button class="btn-nav">
-              <a href="./wishlist.html"><ion-icon class="icon-nav" name="heart-outline"></ion-icon></a>
-            </button>
-            <button class="btn-nav position-relative">
-              <ion-icon class="icon-nav" name="cart-outline" type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"></ion-icon>
-              <span v-if="shoppingCartList.length" class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight">
-                {{shoppingCartList.length}}
-                
-              </span>
-            </button>
-          </div>
-        </div>
       </div>
-    </nav>
 
-    <header class="banner-about">
-      <h1 class="heading-about">Our story</h1>
-    </header>
+      <!-- Navigation bar -->
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="navbar-mobile container-fluid px-5">
+          <div class="d-flex justify-content-between align-items-center">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <main>
-      <section class="container-fluid p-5">
-        <div class="row py-5">
-          <div class="col-sm-12 col-md-4 about-img">
-            <img src="../resources/us-1.jpg">
-          </div>
-          <div class="col-sm-12 col-md-8 ps-5">
-            <h2 class="pb-4">This is us</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-              impedit voluptate suscipit ipsa dolor quis porro ex nam fuga,
-              asperiores voluptas praesentium aspernatur blanditiis
-              necessitatibus! Consectetur dolorum perferendis nesciunt vitae!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-              soluta, nulla quos nihil et itaque nam quaerat ullam id officia
-              animi deserunt, voluptate maiores, eius repellendus possimus
-              eveniet ducimus debitis?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-              impedit voluptate suscipit ipsa dolor quis porro ex nam fuga,
-              asperiores voluptas praesentium aspernatur blanditiis
-              necessitatibus! Consectetur dolorum perferendis nesciunt vitae!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-              soluta, nulla quos nihil et itaque nam quaerat ullam id officia
-              animi deserunt, voluptate maiores, eius repellendus possimus
-              eveniet ducimus debitis?
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
-              impedit voluptate suscipit ipsa dolor quis porro ex nam fuga,
-              asperiores voluptas praesentium aspernatur blanditiis
-              necessitatibus! Consectetur dolorum perferendis nesciunt vitae!
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
-              soluta, nulla quos nihil et itaque nam quaerat ullam id officia
-              animi deserunt, voluptate maiores, eius repellendus possimus
-              eveniet ducimus debitis?
-            </p>
-          </div>
-        </div>
-      </section>
+            <a class="navbar-brand" href="../../index.html">
+              <img
+                class="logo"
+                src="../resources/RENSSEN-logo.png"
+                alt="renssen furniture logo"
+            /></a>
 
-      <section class="container-fluid about-section p-5">
-        <!-- <h2 class=" text-center">What are we all about?</h2> -->
-        <div class="row py-5">
-          <div class="col-6 about-workshop-block-1 pe-5">
-            <p class="about-nr">01</p>
-            <p class="about-heading">FOCUS ON SUSTAINABILITY</p>
-            <p class="text-end">We strive for a closed cycle metabolism by designing smaller products that are made from our factory offcuts, minimising our waste outputs, as well as contributing towards tree planting.
-            </p>
+            <div class="d-flex nav-icons nav-icons-mobile">
+              <button class="btn-nav">
+                <ion-icon class="icon-nav" name="person-outline"></ion-icon>
+              </button>
+              <button class="btn-nav">
+                <a href="./wishlist.html"
+                  ><ion-icon class="icon-nav" name="heart-outline"></ion-icon
+                ></a>
+              </button>
+              <button class="btn-nav position-relative">
+                <ion-icon
+                  class="icon-nav"
+                  name="cart-outline"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                ></ion-icon>
+                <span
+                  v-if="shoppingCartList.length"
+                  class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                >
+                  {{shoppingCartList.length}}
+                </span>
+              </button>
+            </div>
           </div>
-          <div class="col-6 about-workshop-img-1"></div>
-          
-          <div class="col-6 about-workshop-block-2 pe-5">
-            <p class="about-nr">02</p>
-            <p class="about-heading">FOCUS ON SUSTAINABILITY</p>
-            <p class="text-end">We strive for a closed cycle metabolism by designing smaller products that are made from our factory offcuts, minimising our waste outputs, as well as contributing towards tree planting.
-            </p>
-          </div>
-          <div class="col-6 about-workshop-img-2"></div>
-          <div class="col-6 about-workshop-block-3 pe-5">
-            <p class="about-nr">03</p>
-            <p class="about-heading">FOCUS ON SUSTAINABILITY</p>
-            <p class="text-end">We strive for a closed cycle metabolism by designing smaller products that are made from our factory offcuts, minimising our waste outputs, as well as contributing towards tree planting.
-            </p>
-          </div>
-          <div class="col-6 about-workshop-img-3"></div>
-          
-          <div class="col-6 about-workshop-block-4 pe-5">
-            <p class="about-nr">04</p>
-            <p class="about-heading">FOCUS ON SUSTAINABILITY</p>
-            <p class="text-end">We strive for a closed cycle metabolism by designing smaller products that are made from our factory offcuts, minimising our waste outputs, as well as contributing towards tree planting.
-            </p>
-          </div>
-          <div class="col-6 about-workshop-img-4"></div>
-        </div>
-      </section>
-    </main>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./shop.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./lookbook.html">Lookbook</a>
+              </li>
 
-    <footer class="footer">
-      <div class="container-fluid py-5">
-        <div class="container py-5">
-          <div class="row">
-        <div class="col-3 logo-col">
-          <a href="#" class="footer-logo">
-            <img
-            class="logo-footer"
-            src="../resources/RENSSEN-logo-white.png"
-            alt="renssen furniture logo"
-        />
-          </a>
-    
-          <ul class="social-links">
-            <li>
-              <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
-              ></a>
-            </li>
-          </ul>
-    
-          <p class="copyright">
-            Copyright &copy; <span class="year">2027</span> by RENSSEN.Inc.
-            All rights reserved.
-          </p>
-        </div>
-    
-        <div class="col-3 address-col">
-          <p class="footer-heading">Contact us</p>
-          <address class="contacts">
-            <p class="address">
-              Belvedere Office Park, Block B
-              Pasita Road
-              Bellville, 7530, 
-              South Africa
-            </p>
-            <p>
-              <ul>
-              <li><a class="footer-link" href="tel:021-201-6370" target="_blank">021-201-6370</a
-              ></li>
-              <li><a class="footer-link" href="mailto:hello@renssenfurniture.com" target="_blank"
-                >hello@renssenfurniture.com</a
-              ></li>
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
             </ul>
-            </p>
-          </address>
+            <div class="d-flex nav-icons nav-icons-desktop">
+              <button class="btn-nav">
+                <ion-icon class="icon-nav" name="person-outline"></ion-icon>
+              </button>
+              <button class="btn-nav">
+                <a href="./wishlist.html"
+                  ><ion-icon class="icon-nav" name="heart-outline"></ion-icon
+                ></a>
+              </button>
+              <button class="btn-nav position-relative">
+                <ion-icon
+                  class="icon-nav"
+                  name="cart-outline"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                ></ion-icon>
+                <span
+                  v-if="shoppingCartList.length"
+                  class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                >
+                  {{shoppingCartList.length}}
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
-    
-        <nav class="col-2 nav-col">
-          <p class="footer-heading">Account</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Create account</a></li>
-            <li><a class="footer-link" href="#">Sign in</a></li>
-            <li><a class="footer-link" href="#">iOS app</a></li>
-            <li><a class="footer-link" href="#">Android app</a></li>
-          </ul>
-        </nav>
-    
-        <nav class="col-2 nav-col">
-          <p class="footer-heading">Company</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">About</a></li>
-            <li><a class="footer-link" href="#">For Business</a></li>
-            <li><a class="footer-link" href="#">Partners</a></li>
-            <li><a class="footer-link" href="#">Careers</a></li>
-          </ul>
-        </nav>
-    
-        <nav class="col-2 nav-col">
-          <p class="footer-heading">Resources</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">FAQ</a></li>
-            <li><a class="footer-link" href="#">Help center</a></li>
-            <li><a class="footer-link" href="#">Privacy & terms</a></li>
-          </ul>
-        </nav>
+      </nav>
+
+      <header class="banner-about">
+        <h1 class="heading-about">Our story</h1>
+      </header>
+
+      <main>
+        <section class="container-fluid p-5">
+          <div class="row py-5">
+            <div class="col-md-6 col-lg-4 about-img">
+              <img src="../resources/us-1.jpg" />
+            </div>
+            <div class="col-md-6 col-lg-8 ps-5">
+              <h2 class="py-4 pt-md-0">This is us</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                impedit voluptate suscipit ipsa dolor quis porro ex nam fuga,
+                asperiores voluptas praesentium aspernatur blanditiis
+                necessitatibus! Consectetur dolorum perferendis nesciunt vitae!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+                soluta, nulla quos nihil et itaque nam quaerat ullam id officia
+                animi deserunt, voluptate maiores, eius repellendus possimus
+                eveniet ducimus debitis?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                impedit voluptate suscipit ipsa dolor quis porro ex nam fuga,
+                asperiores voluptas praesentium aspernatur blanditiis
+                necessitatibus! Consectetur dolorum perferendis nesciunt vitae!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa
+                soluta, nulla quos nihil et itaque nam quaerat ullam id officia
+                animi deserunt, voluptate maiores, eius repellendus possimus
+                eveniet ducimus debitis?
+              </p>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est
+                impedit voluptate suscipit ipsa dolor quis porro ex nam fuga,
+                asperiores voluptas praesentium aspernatur blanditiis
+                necessitatibus!
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="container-fluid about-section p-5">
+          <div class="row py-5">
+            <div class="col-sm-6 about-workshop-block-1 pe-5">
+              <p class="about-nr">01</p>
+              <p class="about-heading text-uppercase text-end">
+                Focus on Sustainability
+              </p>
+              <p class="text-end">
+                We minimise our waste outputs by using most of our factory
+                offcuts to design and make smaller products to ensure a closed
+                cycle metabolism. We also contribute towards tree planting.
+              </p>
+            </div>
+            <div class="col-sm-6 about-workshop-img-1"></div>
+
+            <div class="col-sm-6 about-workshop-block-2 pe-5">
+              <p class="about-nr">02</p>
+              <p class="about-heading text-uppercase text-end">
+                Stylish Functional Furniture
+              </p>
+              <p class="text-end">
+                We strive to deliver only the best quality furniture in South
+                Africa. Our products are a combination of contemporary classic
+                and custom design, using wood to connect clients to the natural
+                world.
+              </p>
+            </div>
+            <div class="col-sm-6 about-workshop-img-2"></div>
+
+            <div class="col-sm-6 about-workshop-block-3 pe-5">
+              <p class="about-nr">03</p>
+              <p class="about-heading text-uppercase">ECO friendly finishes</p>
+              <p class="text-end">
+                We use only the best quality finishes that are not harmful to
+                the environment, including low VOC paint finishes, varnishes and
+                waxes. These finishes gives the wood a natural look, last
+                longer, is non-toxic and biodegradable.
+              </p>
+            </div>
+            <div class="col-sm-6 about-workshop-img-3"></div>
+
+            <div class="col-sm-6 about-workshop-block-4 pe-5">
+              <p class="about-nr">04</p>
+              <p class="about-heading text-uppercase">Social Upliftment</p>
+              <p class="text-end">
+                We fous on uplifting our community by offering continuous in
+                house and accredited training and facilitating the transfer of
+                skills.
+              </p>
+            </div>
+            <div class="col-sm-6 about-workshop-img-4"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container-fluid py-5">
+          <div class="container py-5">
+            <div class="row">
+              <div class="col-sm-6 col-lg-3 logo-col">
+                <a href="#" class="footer-logo">
+                  <img
+                    class="logo-footer"
+                    src="../resources/RENSSEN-logo-white.png"
+                    alt="renssen furniture logo"
+                  />
+                </a>
+
+                <ul class="social-links">
+                  <li>
+                    <a class="footer-link" href="#"
+                      ><ion-icon
+                        class="social-icon"
+                        name="logo-instagram"
+                      ></ion-icon
+                    ></a>
+                  </li>
+                  <li>
+                    <a class="footer-link" href="#"
+                      ><ion-icon
+                        class="social-icon"
+                        name="logo-facebook"
+                      ></ion-icon
+                    ></a>
+                  </li>
+                  <li>
+                    <a class="footer-link" href="#"
+                      ><ion-icon
+                        class="social-icon"
+                        name="logo-twitter"
+                      ></ion-icon
+                    ></a>
+                  </li>
+                </ul>
+
+                <p class="copyright">
+                  Copyright &copy; <span class="year">2027</span> by
+                  RENSSEN.Inc. All rights reserved.
+                </p>
+              </div>
+
+              <div class="col-sm-6 col-lg-3 address-col">
+                <p class="footer-heading">Contact us</p>
+                <address class="contacts">
+                  <p class="address">
+                    Belvedere Office Park, Block B Pasita Road Bellville, 7530,
+                    South Africa
+                  </p>
+
+                  <ul>
+                    <li>
+                      <a
+                        class="footer-link"
+                        href="tel:021-201-6370"
+                        target="_blank"
+                        >021-201-6370</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="footer-link"
+                        href="mailto:hello@renssenfurniture.com"
+                        target="_blank"
+                        >hello@renssenfurniture.com</a
+                      >
+                    </li>
+                  </ul>
+                </address>
+              </div>
+
+              <nav class="col-sm-4 col-lg-2 nav-col">
+                <p class="footer-heading">Account</p>
+                <ul class="footer-nav">
+                  <li><a class="footer-link" href="#">Create account</a></li>
+                  <li><a class="footer-link" href="#">Sign in</a></li>
+                  <li><a class="footer-link" href="#">iOS app</a></li>
+                  <li><a class="footer-link" href="#">Android app</a></li>
+                </ul>
+              </nav>
+
+              <nav class="col-sm-4 col-lg-2 nav-col">
+                <p class="footer-heading">Company</p>
+                <ul class="footer-nav">
+                  <li><a class="footer-link" href="#">About</a></li>
+                  <li><a class="footer-link" href="#">For Business</a></li>
+                  <li><a class="footer-link" href="#">Partners</a></li>
+                  <li><a class="footer-link" href="#">Careers</a></li>
+                </ul>
+              </nav>
+
+              <nav class="col-sm-4 col-lg-2 nav-col">
+                <p class="footer-heading">Resources</p>
+                <ul class="footer-nav">
+                  <li><a class="footer-link" href="#">FAQ</a></li>
+                  <li><a class="footer-link" href="#">Help center</a></li>
+                  <li><a class="footer-link" href="#">Privacy & terms</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    </footer>
-  </body>
-</div>
+      </footer>
+    </body>
+  </div>
 </html>

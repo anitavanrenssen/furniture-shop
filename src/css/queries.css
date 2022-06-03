@@ -1,0 +1,106 @@
+@media (max-width: 1600px) {
+  .products-section {
+    grid-template-columns: repeat(3, 22rem);
+  }
+}
+
+@media (max-width: 1220px) {
+  .products-section {
+    grid-template-columns: repeat(2, 22rem);
+  }
+}
+
+@media (max-width: 992px) {
+  body {
+    font-size: 16px;
+  }
+  .nav-icons-mobile {
+    display: block !important;
+  }
+
+  .nav-icons-desktop {
+    display: none !important;
+  }
+
+  .navbar-mobile {
+    display: block !important;
+  }
+
+  .about-workshop-img-1 {
+    background-position: 60% 50%;
+  }
+}
+
+@media (max-width: 840px) {
+  .products-section {
+    grid-template-columns: repeat(2, 18rem);
+  }
+  .product-card {
+    width: 18rem;
+  }
+  .product-img {
+    width: 18rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .new-section {
+    margin-top: 700px;
+  }
+  .products-section {
+    grid-template-columns: repeat(2, 14rem);
+  }
+
+  .product-card {
+    width: 14rem;
+  }
+  .product-img {
+    width: 14rem;
+  }
+
+  .contact-map {
+    width: 500px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .products-section {
+    gap: 18px;
+    grid-template-columns: repeat(2, 10rem);
+  }
+
+  .product-card {
+    width: 10rem;
+  }
+  .product-img {
+    width: 10rem;
+  }
+
+  .offcanvas-override {
+    min-width: 350px;
+  }
+
+  .about-workshop-img-4,
+  .about-workshop-img-3,
+  .about-workshop-img-2,
+  .about-workshop-img-1 {
+    height: 250px;
+  }
+
+  .contact-map {
+    width: 400px;
+  }
+}
+
+@media (max-width: 350px) {
+  .offcanvas-override {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 447px) {
+  .contact-map {
+    width: 300px;
+  }
+}

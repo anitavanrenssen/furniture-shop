@@ -46,410 +46,705 @@
     <script src="https://unpkg.com/vue@3"></script>
   </head>
 
-  
   <body>
-
-    <!-- Gallery pop-up carousel -->
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> -->
-
-
-
-
-<div id="app">
-     <!-- Shopping cart sidebar -->
-     <div
-     class="offcanvas offcanvas-end offcanvas-override container-fluid p-4"
-     tabindex="-1"
-     id="offcanvasRight"
-     aria-labelledby="offcanvasRightLabel"
-   >
-     <div class="offcanvas-header ">
-       <h5 class="offcanvas-title cart-heading" id="offcanvasRightLabel">
-         Your Shopping Cart ({{ shoppingCartList.length }})
-       </h5>
-       <button
-         type="button"
-         class="btn-close"
-         data-bs-dismiss="offcanvas"
-         aria-label="Close"
-       ></button>
-     </div>
-     <div class="offcanvas-body">
-       <ul class="product-list ps-0">
-
-         <li v-for="product in shoppingCartList" :key="product.id" class="product-card-cart">
-
-           <div class="card card-override mb-3">
-             <div class="row g-0 ">
-               <div class="col-md-4 cart-product-img">
-                 <img :src="product.image" class="img-fluid " :alt="product.name">
-               </div>
-               <div class="col-md-8">
-                 <div class="card-body text-end pt-4 pe-4">
-                   <div>
-                     <button
-                     class="btn-nav btn-card mb-4"
-                     @click="removeFromCart(product.id)"
-                   >
-                     <ion-icon
-                       class="icon-nav"
-                       name="trash-outline"
-                     ></ion-icon>
-                   </button>
-                   </div>
-                   <h5 class="card-title product-name">{{ product.name }}</h5>
-                  
-                   <p class="product-cost mb-0">R{{ product.cost }}</p>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </li> 
-       </ul>
-       <p class="cart-total text-end py-3 my-5 pe-4">Total: R {{ shoppingCartTotal }}</p>
-       <button class="btn-checkout text-uppercase d-flex flex-row align-items-center gap-2 mx-auto">
-         <ion-icon name="lock-closed" class="icon-checkout"></ion-icon>
-         <span>Checkout</span>
-       </button>
-     </div>
-   </div>
- 
- <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
-      <div class="container-fluid px-5">
-        <div>
-          <a class="navbar-brand" href="../../index.html">
-            <img
-              class="logo"
-              src="../resources/RENSSEN-logo.png"
-              alt="renssen furniture logo"
-          /></a>
+    <div id="app">
+      <!-- Shopping cart sidebar -->
+      <div
+        class="offcanvas offcanvas-end offcanvas-override container-fluid p-4"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title cart-heading" id="offcanvasRightLabel">
+            Your Shopping Cart ({{ shoppingCartList.length }})
+          </h5>
           <button
-            class="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="../../index.html"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./shop.html">Products</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./lookbook.html">Lookbook</a>
-            </li>
+        <div class="offcanvas-body">
+          <ul class="product-list ps-0">
+            <li
+              v-for="product in shoppingCartList"
+              :key="product.id"
+              class="product-card-cart"
+            >
+              <div class="card card-override mb-3">
+                <div class="row g-0">
+                  <div class="col-md-4 cart-product-img">
+                    <img
+                      :src="product.image"
+                      class="img-fluid"
+                      :alt="product.name"
+                    />
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body text-end pt-4 pe-4">
+                      <div>
+                        <button
+                          class="btn-nav btn-card mb-4"
+                          @click="removeFromCart(product.id)"
+                        >
+                          <ion-icon
+                            class="icon-nav"
+                            name="trash-outline"
+                          ></ion-icon>
+                        </button>
+                      </div>
+                      <h5 class="card-title product-name">
+                        {{ product.name }}
+                      </h5>
 
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./contact.html">Contact</a>
+                      <p class="product-cost mb-0">R{{ product.cost }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
-          <div class="d-flex nav-icons">
-            <button class="btn-nav">
-              <ion-icon class="icon-nav" name="person-outline"></ion-icon>
-            </button>
-            <button class="btn-nav">
-              <a href="./wishlist.html"><ion-icon class="icon-nav" name="heart-outline"></ion-icon></a>
-            </button>
-            <button class="btn-nav position-relative">
-              <ion-icon class="icon-nav" name="cart-outline" type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight"></ion-icon>
-              <span v-if="shoppingCartList.length" class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasRight"
-              aria-controls="offcanvasRight">
-                {{shoppingCartList.length}}
-                
-              </span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-  
-    
-
-    <main class="container-fluid p-5">
-      
-      <h3 class="wishlist-heading text-center pb-3">Get Inspired</h3>
-      <div class="pb-0 d-flex lookbook-section" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        
-        <div class="lookbook-col-1">
-          <div class="gallery-item lookbook-img-1">
-            <img src="../resources/chair-1-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="0">
-          </div>
-          <div class="gallery-item lookbook-img-2">
-            <img src="../resources/couch-1-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="1">
-          </div>
-          <div class="gallery-item lookbook-img-3">
-            <img src="../resources/table-1-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="2">
-          </div>
-        </div>
-        <div class="lookbook-col-2">
-          <div class="gallery-item lookbook-img-4">
-            <img src="../resources/shelve-2-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="3">
-          </div>
-          <div class="gallery-item lookbook-img-5">
-            <img src="../resources/chair-table-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="4">
-          </div>
-          <div class="gallery-item lookbook-img-6">
-            <img src="../resources/table-5-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="5">
-          </div>
-        </div>
-        <div class="lookbook-col-3" >
-          <div class="gallery-item lookbook-img-7" data-bs-target="#carouselExample" data-bs-slide-to="6">
-            <img src="../resources/cabinet-1-sm.jpg">
-          </div>
-          <div class="gallery-item lookbook-img-8">
-            <img src="../resources/chair-5-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="7">
-          </div>
-        </div>
-      </div>
-      <div class="pb-5 pt-0 d-flex lookbook-section" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        <div class="lookbook-col-1">
-          <div class="gallery-item lookbook-img-1">
-            <img src="../resources/chair-2-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="8">
-          </div>
-          <div class="gallery-item lookbook-img-2">
-            <img src="../resources/cabinet-5-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="9">
-          </div>
-          <div class="gallery-item lookbook-img-3">
-            <img src="../resources/table-6-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="10">
-          </div>
-        </div>
-        <div class="lookbook-col-2">
-          <div class="gallery-item lookbook-img-4">
-            <img src="../resources/couch-3-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="11">
-          </div>
-          <div class="gallery-item lookbook-img-5">
-            <img src="../resources/decor-2-sm.jpg" data-bs-target="#carouselExample" data-bs-slide-to="12">
-          </div>
-          <div class="gallery-item lookbook-img-6">
-            <img src="../resources/collection-4.jpg" data-bs-target="#carouselExample" data-bs-slide-to="13">
-          </div>
-        </div>
-        <div class="lookbook-col-3" >
-          <div class="gallery-item lookbook-img-7" data-bs-target="#carouselExample" data-bs-slide-to="14">
-            <img src="../resources/chair-4-sm.jpg">
-          </div>
-          <div class="gallery-item lookbook-img-8">
-            <img src="../resources/couch-2-md.jpg" data-bs-target="#carouselExample" data-bs-slide-to="15">
-          </div>
-        </div>
-       
-      </div>
-     
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content modal-content-override">
-      <div class="modal-header">
-        
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        
-        <div id="carouselExample" class="carousel slide" data-bs-ride="true" >
-          <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="3" aria-label="Slide 4"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="4" aria-label="Slide 5"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="5" aria-label="Slide 6"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="6" aria-label="Slide 7"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="7" aria-label="Slide 8"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="8" aria-label="Slide 9"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="9" aria-label="Slide 10"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="10" aria-label="Slide 11"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="11" aria-label="Slide 12"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="12" aria-label="Slide 13"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="13" aria-label="Slide 14"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="14" aria-label="Slide 15"></button>
-            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="15" aria-label="Slide 16"></button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item carousel-item-override active">
-              <img src="../resources/chair-1-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/couch-1-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/table-1-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/shelve-2-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/chair-table-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/table-5-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/cabinet-1-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/chair-5-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/chair-2-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/cabinet-5-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/table-6-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/couch-3-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/decor-2-md.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/collection-4.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/chair-4-sm.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item carousel-item-override">
-              <img src="../resources/couch-2-md.jpg" class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-      </div>
-      
-      <div class="modal-footer">
-        
-      </div>
-    </div>
-  </div>
-
-  
-
-</div>
-<a class="welcome-link pb-5" href="./shop.html">Shop &#10095;</a>
-
-    </main>
-    <footer class="footer">
-      <div class="container-fluid py-5">
-        <div class="container py-5">
-          <div class="row">
-        <div class="col-3 logo-col">
-          <a href="#" class="footer-logo">
-            <img
-            class="logo-footer"
-            src="../resources/RENSSEN-logo-white.png"
-            alt="renssen furniture logo"
-        />
-          </a>
-    
-          <ul class="social-links">
-            <li>
-              <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-instagram"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-facebook"></ion-icon
-              ></a>
-            </li>
-            <li>
-              <a class="footer-link" href="#"
-                ><ion-icon class="social-icon" name="logo-twitter"></ion-icon
-              ></a>
-            </li>
-          </ul>
-    
-          <p class="copyright">
-            Copyright &copy; <span class="year">2027</span> by RENSSEN.Inc.
-            All rights reserved.
+          <p class="cart-total text-end py-3 my-5 pe-4">
+            Total: R {{ shoppingCartTotal }}
           </p>
-        </div>
-    
-        <div class="col-3 address-col">
-          <p class="footer-heading">Contact us</p>
-          <address class="contacts">
-            <p class="address">
-              Belvedere Office Park, Block B
-              Pasita Road
-              Bellville, 7530, 
-              South Africa
-            </p>
-            <p>
-              <ul>
-              <li><a class="footer-link" href="tel:021-201-6370" target="_blank">021-201-6370</a
-              ></li>
-              <li><a class="footer-link" href="mailto:hello@renssenfurniture.com" target="_blank"
-                >hello@renssenfurniture.com</a
-              ></li>
-            </ul>
-            </p>
-          </address>
-        </div>
-    
-        <nav class="col-2 nav-col">
-          <p class="footer-heading">Account</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">Create account</a></li>
-            <li><a class="footer-link" href="#">Sign in</a></li>
-            <li><a class="footer-link" href="#">iOS app</a></li>
-            <li><a class="footer-link" href="#">Android app</a></li>
-          </ul>
-        </nav>
-    
-        <nav class="col-2 nav-col">
-          <p class="footer-heading">Company</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">About</a></li>
-            <li><a class="footer-link" href="#">For Business</a></li>
-            <li><a class="footer-link" href="#">Partners</a></li>
-            <li><a class="footer-link" href="#">Careers</a></li>
-          </ul>
-        </nav>
-    
-        <nav class="col-2 nav-col">
-          <p class="footer-heading">Resources</p>
-          <ul class="footer-nav">
-            <li><a class="footer-link" href="#">FAQ</a></li>
-            <li><a class="footer-link" href="#">Help center</a></li>
-            <li><a class="footer-link" href="#">Privacy & terms</a></li>
-          </ul>
-        </nav>
+          <button
+            class="btn-checkout text-uppercase d-flex flex-row align-items-center gap-2 mx-auto"
+          >
+            <ion-icon name="lock-closed" class="icon-checkout"></ion-icon>
+            <span>Checkout</span>
+          </button>
         </div>
       </div>
-    </div>
-    </footer>
-  </body>
 
+      <!-- Navigation bar -->
+      <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="navbar-mobile container-fluid px-5">
+          <div class="d-flex justify-content-between align-items-center">
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <a class="navbar-brand" href="../../index.html">
+              <img
+                class="logo"
+                src="../resources/RENSSEN-logo.png"
+                alt="renssen furniture logo"
+            /></a>
+
+            <div class="d-flex nav-icons nav-icons-mobile">
+              <button class="btn-nav">
+                <ion-icon class="icon-nav" name="person-outline"></ion-icon>
+              </button>
+              <button class="btn-nav">
+                <a href="./wishlist.html"
+                  ><ion-icon class="icon-nav" name="heart-outline"></ion-icon
+                ></a>
+              </button>
+              <button class="btn-nav position-relative">
+                <ion-icon
+                  class="icon-nav"
+                  name="cart-outline"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                ></ion-icon>
+                <span
+                  v-if="shoppingCartList.length"
+                  class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                >
+                  {{shoppingCartList.length}}
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="../../index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./shop.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./lookbook.html">Lookbook</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="./about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./contact.html">Contact</a>
+              </li>
+            </ul>
+            <div class="d-flex nav-icons nav-icons-desktop">
+              <button class="btn-nav">
+                <ion-icon class="icon-nav" name="person-outline"></ion-icon>
+              </button>
+              <button class="btn-nav">
+                <a href="./wishlist.html"
+                  ><ion-icon class="icon-nav" name="heart-outline"></ion-icon
+                ></a>
+              </button>
+              <button class="btn-nav position-relative">
+                <ion-icon
+                  class="icon-nav"
+                  name="cart-outline"
+                  type="button"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                ></ion-icon>
+                <span
+                  v-if="shoppingCartList.length"
+                  class="cart-badge position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary"
+                  data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasRight"
+                  aria-controls="offcanvasRight"
+                >
+                  {{shoppingCartList.length}}
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <main class="container-fluid p-5">
+        <h3 class="wishlist-heading text-center pb-3">Get Inspired</h3>
+        <div
+          class="pb-0 d-flex lookbook-section"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <div class="lookbook-col-1">
+            <div class="gallery-item lookbook-img-1">
+              <img
+                src="../resources/chair-1-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="0"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-2">
+              <img
+                src="../resources/couch-1-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="1"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-3">
+              <img
+                src="../resources/table-1-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="2"
+              />
+            </div>
+          </div>
+          <div class="lookbook-col-2">
+            <div class="gallery-item lookbook-img-4">
+              <img
+                src="../resources/shelve-2-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="3"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-5">
+              <img
+                src="../resources/chair-table-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="4"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-6">
+              <img
+                src="../resources/table-5-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="5"
+              />
+            </div>
+          </div>
+          <div class="lookbook-col-3">
+            <div
+              class="gallery-item lookbook-img-7"
+              data-bs-target="#carouselExample"
+              data-bs-slide-to="6"
+            >
+              <img src="../resources/cabinet-1-sm.jpg" />
+            </div>
+            <div class="gallery-item lookbook-img-8">
+              <img
+                src="../resources/chair-5-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="7"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="pb-5 pt-0 d-flex lookbook-section"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <div class="lookbook-col-1">
+            <div class="gallery-item lookbook-img-1">
+              <img
+                src="../resources/chair-2-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="8"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-2">
+              <img
+                src="../resources/cabinet-5-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="9"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-3">
+              <img
+                src="../resources/table-6-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="10"
+              />
+            </div>
+          </div>
+          <div class="lookbook-col-2">
+            <div class="gallery-item lookbook-img-4">
+              <img
+                src="../resources/couch-3-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="11"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-5">
+              <img
+                src="../resources/decor-2-sm.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="12"
+              />
+            </div>
+            <div class="gallery-item lookbook-img-6">
+              <img
+                src="../resources/collection-4.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="13"
+              />
+            </div>
+          </div>
+          <div class="lookbook-col-3">
+            <div
+              class="gallery-item lookbook-img-7"
+              data-bs-target="#carouselExample"
+              data-bs-slide-to="14"
+            >
+              <img src="../resources/chair-4-sm.jpg" />
+            </div>
+            <div class="gallery-item lookbook-img-8">
+              <img
+                src="../resources/couch-2-md.jpg"
+                data-bs-target="#carouselExample"
+                data-bs-slide-to="15"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content modal-content-override">
+              <div class="modal-header">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <div
+                  id="carouselExample"
+                  class="carousel slide"
+                  data-bs-ride="true"
+                >
+                  <div class="carousel-indicators">
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="0"
+                      class="active"
+                      aria-current="true"
+                      aria-label="Slide 1"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="1"
+                      aria-label="Slide 2"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="2"
+                      aria-label="Slide 3"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="3"
+                      aria-label="Slide 4"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="4"
+                      aria-label="Slide 5"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="5"
+                      aria-label="Slide 6"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="6"
+                      aria-label="Slide 7"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="7"
+                      aria-label="Slide 8"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="8"
+                      aria-label="Slide 9"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="9"
+                      aria-label="Slide 10"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="10"
+                      aria-label="Slide 11"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="11"
+                      aria-label="Slide 12"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="12"
+                      aria-label="Slide 13"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="13"
+                      aria-label="Slide 14"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="14"
+                      aria-label="Slide 15"
+                    ></button>
+                    <button
+                      type="button"
+                      data-bs-target="#carouselExample"
+                      data-bs-slide-to="15"
+                      aria-label="Slide 16"
+                    ></button>
+                  </div>
+                  <div class="carousel-inner">
+                    <div class="carousel-item carousel-item-override active">
+                      <img
+                        src="../resources/chair-1-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/couch-1-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/table-1-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/shelve-2-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/chair-table-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/table-5-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/cabinet-1-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/chair-5-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/chair-2-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/cabinet-5-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/table-6-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/couch-3-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/decor-2-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/collection-4.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/chair-4-sm.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                    <div class="carousel-item carousel-item-override">
+                      <img
+                        src="../resources/couch-2-md.jpg"
+                        class="d-block w-100"
+                        alt="..."
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExample"
+                    data-bs-slide="prev"
+                  >
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExample"
+                    data-bs-slide="next"
+                  >
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"
+                    ></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="modal-footer"></div>
+            </div>
+          </div>
+        </div>
+        <a class="welcome-link pb-5" href="./shop.html">Shop &#10095;</a>
+      </main>
+      <footer class="footer">
+        <div class="container-fluid py-5">
+          <div class="container py-5">
+            <div class="row">
+              <div class="col-sm-6 col-lg-3 logo-col">
+                <a href="#" class="footer-logo">
+                  <img
+                    class="logo-footer"
+                    src="../resources/RENSSEN-logo-white.png"
+                    alt="renssen furniture logo"
+                  />
+                </a>
+
+                <ul class="social-links">
+                  <li>
+                    <a class="footer-link" href="#"
+                      ><ion-icon
+                        class="social-icon"
+                        name="logo-instagram"
+                      ></ion-icon
+                    ></a>
+                  </li>
+                  <li>
+                    <a class="footer-link" href="#"
+                      ><ion-icon
+                        class="social-icon"
+                        name="logo-facebook"
+                      ></ion-icon
+                    ></a>
+                  </li>
+                  <li>
+                    <a class="footer-link" href="#"
+                      ><ion-icon
+                        class="social-icon"
+                        name="logo-twitter"
+                      ></ion-icon
+                    ></a>
+                  </li>
+                </ul>
+
+                <p class="copyright">
+                  Copyright &copy; <span class="year">2027</span> by
+                  RENSSEN.Inc. All rights reserved.
+                </p>
+              </div>
+
+              <div class="col-sm-6 col-lg-3 address-col">
+                <p class="footer-heading">Contact us</p>
+                <address class="contacts">
+                  <p class="address">
+                    Belvedere Office Park, Block B Pasita Road Bellville, 7530,
+                    South Africa
+                  </p>
+
+                  <ul>
+                    <li>
+                      <a
+                        class="footer-link"
+                        href="tel:021-201-6370"
+                        target="_blank"
+                        >021-201-6370</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="footer-link"
+                        href="mailto:hello@renssenfurniture.com"
+                        target="_blank"
+                        >hello@renssenfurniture.com</a
+                      >
+                    </li>
+                  </ul>
+                </address>
+              </div>
+
+              <nav class="col-sm-4 col-lg-2 nav-col">
+                <p class="footer-heading">Account</p>
+                <ul class="footer-nav">
+                  <li><a class="footer-link" href="#">Create account</a></li>
+                  <li><a class="footer-link" href="#">Sign in</a></li>
+                  <li><a class="footer-link" href="#">iOS app</a></li>
+                  <li><a class="footer-link" href="#">Android app</a></li>
+                </ul>
+              </nav>
+
+              <nav class="col-sm-4 col-lg-2 nav-col">
+                <p class="footer-heading">Company</p>
+                <ul class="footer-nav">
+                  <li><a class="footer-link" href="#">About</a></li>
+                  <li><a class="footer-link" href="#">For Business</a></li>
+                  <li><a class="footer-link" href="#">Partners</a></li>
+                  <li><a class="footer-link" href="#">Careers</a></li>
+                </ul>
+              </nav>
+
+              <nav class="col-sm-4 col-lg-2 nav-col">
+                <p class="footer-heading">Resources</p>
+                <ul class="footer-nav">
+                  <li><a class="footer-link" href="#">FAQ</a></li>
+                  <li><a class="footer-link" href="#">Help center</a></li>
+                  <li><a class="footer-link" href="#">Privacy & terms</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
 </html>
