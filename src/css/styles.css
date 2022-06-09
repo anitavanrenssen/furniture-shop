@@ -10,7 +10,7 @@
 
 body {
   font-family: "Inter", sans-serif;
-  font-size: 18px;
+  font-size: 14px;
   color: #333;
 }
 
@@ -26,7 +26,7 @@ body {
 }
 
 .nav-link {
-  font-size: 16px;
+  font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-left: 18px;
@@ -62,6 +62,7 @@ body {
 
 .navbar-mobile {
   display: flex;
+  max-width: 1700px;
 }
 
 /********** CART SIDEBAR **********/
@@ -109,8 +110,8 @@ body {
 
 .footer {
   background-color: #333;
-  color: #adab9e;
-  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
 }
 
 .footer ul {
@@ -130,13 +131,13 @@ body {
 }
 
 .footer-link {
-  color: #adab9e;
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   line-height: 3;
 }
 
 .footer-link:hover {
-  color: #c4c1b2;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .logo-footer {
@@ -153,7 +154,7 @@ body {
 }
 
 .footer-heading {
-  font-size: 18px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.801);
 }
 
@@ -219,6 +220,7 @@ body {
 
 .featured-section {
   margin-bottom: 100px;
+  max-width: 1700px;
 }
 
 .featured-row {
@@ -302,6 +304,10 @@ body {
 
 .collection-section {
   background-color: #e3e3e3;
+}
+
+.collection-blocks {
+  max-width: 1700px;
 }
 
 .col-img {
@@ -407,6 +413,10 @@ body {
 /******************************
      LOOKBOOK PAGE
 ******************************/
+
+.lookbook-section {
+  max-width: 1700px;
+}
 
 .lookbook-col-1 {
   width: 35%;
@@ -539,6 +549,10 @@ body {
 
 /********** THIS IS US SECTION **********/
 
+.about-section {
+  max-width: 1700px;
+}
+
 .about-img {
   overflow: hidden;
 }
@@ -551,7 +565,7 @@ body {
 
 /********** WORKSHOP SECTION **********/
 
-.about-section {
+.workshop-section {
   background-color: #e3e3e3;
 }
 
